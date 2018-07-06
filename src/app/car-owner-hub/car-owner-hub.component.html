@@ -1,0 +1,66 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a routerLink="/" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome James Miller!</span>
+    <button class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
+
+<!-- Container for page -->
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <h5 class="card-title my-2">Your vehicles</h5>
+      <hr>
+
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> Model <i class="fas fa-car ml-1"></i></th>
+            <th scope="col">License Plate <i class="fas fa-money-check ml-1"></i></th>
+            <th scope="col">Colour <i class="fas fa-palette ml-1"></i></th>
+            <th scope="col">Status <i class="fas fa-clipboard-list ml-1"></i></th>
+            <th scope="col">Insurance Until <i class="fas fa-hourglass ml-1"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Honda Accord</td>
+            <td>BTRD 094</td>
+            <td>Black</td>
+            <td>Active</td>
+            <td>01/01/2019</td>
+          </tr>
+          <tr>
+              <th scope="row">2</th>
+              <td>Honda Accord</td>
+              <td>BNKL 323</td>
+              <td>Black</td>
+              <td>Active</td>
+              <td>06/05/2021</td>
+          </tr>
+          <tr>
+              <th scope="row">3</th>
+              <td>Honda Odyssey</td>
+              <td>BTKD 428</td>
+              <td>Gray</td>
+              <td>Active</td>
+              <td>Insurance Expired</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row justify-content-end">
+          <div class="col-2">
+              <button routerLink="/car-owner/car-new" class="btn btn-outline-success">Add new vehicle</button>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>

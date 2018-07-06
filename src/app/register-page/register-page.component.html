@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <a routerLink="/" class="navbar-brand">
-    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
   </a>
   <button class="btn btn-outline-info mr-sm-2">Help</button>
 </nav>
@@ -13,21 +13,27 @@
       <h5 class="card-title mb-2 mt-5">Sign Up</h5>
       
       <!-- Form -->
-      <form class="w-50 mx-auto text-left">
+      <form class="w-75 mx-auto text-left">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
               <label for="exampleInputName1">Name</label>
-              <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter full name">
+              <input type="text" class="form-control form-control-lg" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter full name">
             </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control mb-3" id="exampleInputPassword1" placeholder="Password">
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Re-enter Password">
+            <input type="password" class="form-control form-control-lg mb-3" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password">
             </div>
+            <select class="form-control form-control-lg mb-3 mt-4">
+                <option>Car owner</option>
+                <option>Insurance Agent</option>
+                <option>Manufacturer</option>
+                <option>Police Officer</option>
+              </select>
           <button routerLink="/" class="btn btn-primary">Submit</button>
         </form>
 

@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   <a routerLink="/" class="navbar-brand">
-    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
   </a>
   <button class="btn btn-outline-info mr-sm-2">Help</button>
 </nav>
@@ -11,18 +11,24 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Sign In</h5>
-       <!-- Form -->
-      <form class="w-50 mx-auto text-left">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <button routerLink="/" class="btn btn-primary">Sign In</button>
-        </form>
+      <!-- Form -->
+      <form class="w-75 mx-auto text-left">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <select class="form-control form-control-lg mb-3 mt-4">
+            <option>Car owner</option>
+            <option>Insurance Agent</option>
+            <option>Manufacturer</option>
+            <option>Police Officer</option>
+          </select>
+        <button routerLink="/" class="btn btn-primary">Sign In</button>
+      </form>
 
       <div class="row justify-content-end">
         <a class="col-lg-1 col-5" href="#">
