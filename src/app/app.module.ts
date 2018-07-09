@@ -22,6 +22,8 @@ import { ManufaturerHubCarInfoComponent } from './manufaturer-hub-car-info/manuf
 import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-requests/manufaturer-hub-order-requests.component';
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +48,8 @@ import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufature
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
