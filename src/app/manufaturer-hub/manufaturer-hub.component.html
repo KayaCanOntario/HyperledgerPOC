@@ -1,13 +1,13 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <a routerLink="/" class="navbar-brand">
-    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-  </a>
-  <div>
-    <span class="mr-3">Welcome Manufacturer!</span>
-    <button class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-  </div>
-</nav>
+    <a routerLink="/manufacturer" class="navbar-brand">
+      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+    </a>
+    <div>
+      <span class="mr-3">Welcome Manufacturer!</span>
+      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+    </div>
+  </nav>
 
 <!-- Container for page -->
 <div class="container">
@@ -21,24 +21,21 @@
           </button>
         </div>
         <div class="col-lg-3 col-12 text-center">
-          <button class="btn btn-outline-primary btn-block" style="height: 80px;">Order requests
+          <button routerLink="/manufacturer/order-request" class="btn btn-outline-primary btn-block" style="height: 80px;">Order requests
             <i class="fas fa-cart-arrow-down ml-1"></i>
           </button>
         </div>
         <div class="col-lg-3 col-12 text-center">
-          <button class="btn btn-outline-secondary btn-block" style="height: 80px;">Stock
+          <button routerLink="/manufacturer/stock" class="btn btn-outline-secondary btn-block" style="height: 80px;">Stock
             <i class="fas fa-box ml-1"></i>
           </button>
         </div>
         <div class="col-lg-3 col-12 text-center">
-          <button class="btn btn-outline-secondary btn-block" style="height: 80px;">Sell vehicle
+          <button routerLink="/manufacturer/sell-car" class="btn btn-outline-info btn-block" style="height: 80px;">Sell vehicle
             <i class="fas fa-user-tag ml-1"></i>
           </button>
         </div>
       </div>
-
-
     </div>
-
   </div>
 </div>

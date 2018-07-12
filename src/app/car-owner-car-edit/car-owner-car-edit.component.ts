@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-owner-car-edit.component.css']
 })
 export class CarOwnerCarEditComponent implements OnInit {
+  vehicleOwner: string = "James Miller";
+  vehicleVIN: string = "1HGCN41JXMN109186";
+  vehicleMake: string = "Chevy";
+  vehicleModel: string = "Nova";
+  vehicleLicense: string = "BTRD 094";
+  vehicleColour: string = "Blue";
+  vehicleInsurance: string = "534573";
 
   constructor() { }
 

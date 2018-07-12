@@ -1,3 +1,56 @@
-<p>
-  manufaturer-hub-sell-car works!
-</p>
+<!-- Navbar -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a routerLink="/manufacturer" class="navbar-brand">
+      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+    </a>
+    <div>
+      <span class="mr-3">Welcome Manufacturer!</span>
+      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+    </div>
+  </nav>
+  
+  <!-- Container for page -->
+  <div class="container">
+    <div class="card my-5">
+      <div class="card-body">
+        <h5 class="card-title my-2">Stock</h5>
+        <hr>
+  
+        <table class="table table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Model
+              </th>
+              <th scope="col">License
+              </th>
+              <th scope="col">Colour
+              </th>
+              <th scope="col">Price
+                </th>
+              <th scope="col">Sell Vehicle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Honda Accord</td>
+              <td>BTRD 094</td>
+              <td>Blue</td>
+              <td>$10,000</td>
+              <td>
+                  <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" >Sell</button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="row justify-content-end">
+          <div class="col-3 mt-4">
+            <button routerLink="/manufacturer/stock" class="btn btn-outline-success">See all vehicles in stock</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>

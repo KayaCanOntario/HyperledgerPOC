@@ -1,13 +1,13 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <a routerLink="/" class="navbar-brand">
-    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-  </a>
-  <div>
-    <span class="mr-3">Welcome Manufacturer!</span>
-    <button class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-  </div>
-</nav>
+    <a routerLink="/manufacturer" class="navbar-brand">
+      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+    </a>
+    <div>
+      <span class="mr-3">Welcome Manufacturer!</span>
+      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+    </div>
+  </nav>
 
 <!-- Container for page -->
 <div class="container">
@@ -16,7 +16,6 @@
       <h5 class="card-title mb-2 mt-5">Register a New Vehicle</h5>
 
       <!-- Form -->
-
       <form class="w-75 mx-auto text-left">
         <div class="form-group">
           <label for="exampleInputVIN1">VIN</label>
@@ -62,7 +61,7 @@
                   Additional feature 3
                 </label>
               </div>
-        <button routerLink="/" class="btn btn-primary mt-4">Submit</button>
+        <button routerLink="/manufacturer" class="btn btn-primary mt-4">Submit</button>
       </form>
 
       <div class="row justify-content-end">

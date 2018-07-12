@@ -20,11 +20,23 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">#</th>
-            <th scope="col"> Model <i class="fas fa-car ml-1"></i></th>
-            <th scope="col">License Plate <i class="fas fa-money-check ml-1"></i></th>
-            <th scope="col">Colour <i class="fas fa-palette ml-1"></i></th>
-            <th scope="col">Status <i class="fas fa-clipboard-list ml-1"></i></th>
-            <th scope="col">Insurance Until <i class="fas fa-hourglass ml-1"></i></th>
+            <th scope="col">Model
+              <i class="fas fa-car ml-1"></i>
+            </th>
+            <th scope="col">License Plate
+              <i class="fas fa-money-check ml-1"></i>
+            </th>
+            <th scope="col">Colour
+              <i class="fas fa-palette ml-1"></i>
+            </th>
+            <th scope="col">Status
+              <i class="fas fa-clipboard-list ml-1"></i>
+            </th>
+            <th scope="col">Insurance Until
+              <i class="fas fa-hourglass ml-1"></i>
+            </th>
+            <th scope="col">View Details <i class="fas fa-file-alt ml-1"></i></th>
+            <th scope="col">Edit Vehicle <i class="fas fa-edit ml-1"></i></th>
           </tr>
         </thead>
         <tbody>
@@ -35,31 +47,49 @@
             <td>Black</td>
             <td>Active</td>
             <td>01/01/2019</td>
+            <td>
+              <button routerLink="/car-owner/car-info" type="button" class="btn btn-link">View</button>
+            </td>
+            <td>
+              <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>
+            </td>
           </tr>
           <tr>
-              <th scope="row">2</th>
-              <td>Honda Accord</td>
-              <td>BNKL 323</td>
-              <td>Black</td>
-              <td>Active</td>
-              <td>06/05/2021</td>
+            <th scope="row">2</th>
+            <td>Honda Accord</td>
+            <td>BNKL 323</td>
+            <td>Black</td>
+            <td>Active</td>
+            <td>06/05/2021</td>
+            <td>
+              <button routerLink="/car-owner/car-info" type="button" class="btn btn-link">View</button>
+            </td>
+            <td>
+              <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>
+            </td>
           </tr>
           <tr>
-              <th scope="row">3</th>
-              <td>Honda Odyssey</td>
-              <td>BTKD 428</td>
-              <td>Gray</td>
-              <td>Active</td>
-              <td>Insurance Expired</td>
+            <th scope="row">3</th>
+            <td>Honda Odyssey</td>
+            <td>BTKD 428</td>
+            <td>Gray</td>
+            <td>Active</td>
+            <td>Insurance Expired</td>
+            <td>
+              <button routerLink="/car-owner/car-info" type="button" class="btn btn-link">View</button>
+            </td>
+            <td>
+              <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>
+            </td>
           </tr>
         </tbody>
       </table>
 
       <div class="row justify-content-end">
-          <div class="col-2">
-              <button routerLink="/car-owner/car-new" class="btn btn-outline-success">Add new vehicle</button>
-          </div>
+        <div class="col-2 mt-4">
+          <button routerLink="/car-owner/car-new" class="btn btn-outline-success">Add new vehicle</button>
         </div>
+      </div>
     </div>
 
   </div>
