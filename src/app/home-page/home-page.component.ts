@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.restService.isWorking();
-    this.restService.getAllTraders();
+    this.restService.getAllcarOwners();
   }
 
 }
