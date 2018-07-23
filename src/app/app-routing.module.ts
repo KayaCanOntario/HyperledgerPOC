@@ -15,6 +15,7 @@ import { ManufaturerHubCarInfoComponent } from './manufaturer-hub-car-info/manuf
 import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-requests/manufaturer-hub-order-requests.component';
 import { ManufaturerHubSellCarComponent } from './manufaturer-hub-sell-car/manufaturer-hub-sell-car.component';
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
+import { ZmockDataComponent } from './zmock-data/zmock-data.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'manufacturer/order-request', component: ManufaturerHubOrderRequestsComponent },
   { path: 'manufacturer/sell-car', component: ManufaturerHubSellCarComponent },
   { path: 'manufacturer/stock', component: ManufaturerHubStockComponent },
+  { path: 'mock-data/admin/admin', component: ZmockDataComponent },
 ];
 
 @NgModule({
