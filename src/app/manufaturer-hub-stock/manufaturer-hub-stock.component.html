@@ -33,7 +33,22 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let row of tableData">
+                <th scope="row">{{row.VIN}}</th>
+                <td>{{row.make}} {{row.model}}</td>
+                <td>{{row.plate}}</td>
+                <td>{{row.status}}</td>
+                <td>{{row.colour}}</td>
+                <td>
+                  <button routerLink="/manufacturer/view-car" type="button" class="btn btn-link">View</button>
+                </td>
+                <td>
+                    <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" [disabled]="row.status != 'Active'">Sell</button>
+
+                    
+                  </td>
+            </tr>
+            <!--<tr>
               <th scope="row">1</th>
               <td>Honda Accord</td>
               <td>BTRD 094</td>
@@ -71,7 +86,7 @@
                 <td>
                     <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link">Sell</button>
                   </td>
-            </tr>
+            </tr>-->
           </tbody>
         </table>
   

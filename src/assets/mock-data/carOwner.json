@@ -1,0 +1,28 @@
+[
+  
+  {
+    "$class": "org.example.scottpoc.carOwner",
+    "ownerId": "91001",
+    "firstName": "Harry",
+    "lastName": "Newman",
+    "email": "Ex",
+    "pass": "Ex"
+  },
+  {
+    "$class": "org.example.scottpoc.carOwner",
+    "ownerId": "91002",
+    "firstName": "Victoria",
+    "lastName": "Richards",
+    "email": "Ex",
+    "pass": "Ex"
+  },
+  {
+    "$class": "org.example.scottpoc.carOwner",
+    "ownerId": "91003",
+    "firstName": "Johnny",
+    "lastName": "Shaw",
+    "email": "Ex",
+    "pass": "Ex"
+  }
+  
+]

@@ -1,3 +1,4 @@
+import { RestService } from './../rest.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManufaturerHubComponent implements OnInit {
 
-  constructor() { }
+  constructor(private restService: RestService) { }
 
   ngOnInit() {
+   
   }
 
 }

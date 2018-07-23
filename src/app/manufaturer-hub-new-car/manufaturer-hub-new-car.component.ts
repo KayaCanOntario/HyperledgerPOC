@@ -1,3 +1,4 @@
+import { Vehicle } from './../models/vehicle';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manufaturer-hub-new-car.component.css']
 })
 export class ManufaturerHubNewCarComponent implements OnInit {
-
+  vehicle: Vehicle = new Vehicle();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addCar(newVehicle: Vehicle)
+  {
+
   }
 
 }
