@@ -1,6 +1,8 @@
+import { Vehicle } from './models/vehicle';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable } from '../../node_modules/rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +25,9 @@ export class RestService {
 
   // Fetch all X items from the network. The data fetched depends on the 
   // URL given as a parameter.
-  getAllFrom(url: string): void {
-    this.http.get(this.url + url).subscribe(data => {
-      console.log(data);
-    });
+  getAllFrom(url: string): Observable<Vehicle> {
+    return this.http.get(this.url + url).pipe(map(data=> data as Vehicle));
+    
   }
 
 }

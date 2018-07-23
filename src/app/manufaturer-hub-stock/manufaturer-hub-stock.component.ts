@@ -12,7 +12,7 @@ export class ManufaturerHubStockComponent implements OnInit {
 
   ngOnInit() {
     this.restService.isWorking();
-    this.restService.getAllvehicles().subscribe(data=>{
+    this.restService.getAllFrom("vehicle").subscribe(data=>{
       this.tableData = data;
       console.log(data);
     });
