@@ -19,13 +19,13 @@ export class RestService {
 
   // Post X items to the network.
   postTo(url: string, array: any): Observable<any> {
-    return this.http.post(this.url + url, array);
+    return this.http.post(url, array);
   }
 
   // Fetch all X items from the network. The data fetched depends on the 
   // URL given as a parameter.
   getAllFrom(url: string): Observable<Vehicle> {
-    return this.http.get(this.url + url).pipe(map(data=> data as Vehicle));
+    return this.http.get(url).pipe(map(data=> data as Vehicle));
     
   }
 

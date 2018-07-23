@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -22,7 +23,9 @@ import { ManufaturerHubCarInfoComponent } from './manufaturer-hub-car-info/manuf
 import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-requests/manufaturer-hub-order-requests.component';
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
+
 import { ZmockDataComponent } from './zmock-data/zmock-data.component';
 
 @NgModule({
@@ -50,10 +53,19 @@ import { ZmockDataComponent } from './zmock-data/zmock-data.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpClientInterceptor,
+      multi: true,
+      } 
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

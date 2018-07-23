@@ -22,24 +22,24 @@
       <form class="w-75 mx-auto text-left">
         <div class="form-group">
           <label for="exampleInputVIN1">VIN</label>
-          <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number">
+          <input type="text" [(ngModel)]="vehicle.VIN" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number" name="trait">
         </div>
         <div class="form-group">
           <label for="exampleInputMake1">Make</label>
-          <input type="text" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp" placeholder="Enter the vehicle`s Make">
+          <input type="text" [(ngModel)]="vehicle.make" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp" placeholder="Enter the vehicle`s Make" name="trait2">
         </div>
         <div class="form-group">
           <label for="exampleInputModel1">Model</label>
-          <input type="text" class="form-control form-control-lg" id="exampleInputModel1" aria-describedby="modelHelp" placeholder="Enter the vehicle`s model">
+          <input type="text" [(ngModel)]="vehicle.model" class="form-control form-control-lg" id="exampleInputModel1" aria-describedby="modelHelp" placeholder="Enter the vehicle`s model" name="trait3">
         </div>
         <div class="form-group">
           <label for="exampleInputLicense1">License</label>
-          <input type="text" class="form-control form-control-lg" id="exampleInputLicense1" aria-describedby="licenseHelp" placeholder="Enter the vehicle`s license plate">
+          <input type="text" [(ngModel)]="vehicle.plate" class="form-control form-control-lg" id="exampleInputLicense1" aria-describedby="licenseHelp" placeholder="Enter the vehicle`s license plate" name="trait4">
         </div>
 
         <div class="form-group">
           <label for="exampleInputColour1">Colour</label>
-          <input type="text" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle`s colour">
+          <input type="text" [(ngModel)]="vehicle.colour" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle`s colour" name="trait5">
         </div>
 
         <div class="form-group">
@@ -64,7 +64,7 @@
                   Additional feature 3
                 </label>
               </div>
-        <button routerLink="/manufacturer" class="btn btn-primary mt-4" (click)="addCar(vehicle)">Submit</button>
+        <button  class="btn btn-primary mt-4" (click)="addCar(vehicle)">Submit</button>
       </form>
 
       
@@ -79,7 +79,7 @@
         </a>
       </div>
 
-      <!-- Gross positioning temporary button -->
+      <!-- Gross positioning temporary button-->
       <div class="row justify-content-end">
           <div class="col-1 mt-4">
             <button routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>

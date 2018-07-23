@@ -15,7 +15,8 @@ export class ManufaturerHubNewCarComponent implements OnInit {
 
   addCar(newVehicle: Vehicle)
   {
-
+    //const vin = newVehicle.VIN;
+    console.log(newVehicle);
   }
 
 }
