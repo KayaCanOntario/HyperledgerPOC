@@ -21,8 +21,7 @@ export class RestService {
     return this.http.post(url, array);
   }
 
-  // Fetch all X items from the network. The data fetched depends on the 
-  // URL given as a parameter
+  // Fetch all data from the network of a certain type
   getAllFrom(url: string): Observable<any> {
     return this.http.get(url).pipe(map(data=> data as any));
     
