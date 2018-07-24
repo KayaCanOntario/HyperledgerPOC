@@ -1,4 +1,5 @@
 export class Vehicle {
+    $class: string;
     VIN: string;
     colour: string;
     height: string;

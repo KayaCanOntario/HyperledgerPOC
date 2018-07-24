@@ -26,7 +26,7 @@ import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufature
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
 
-import { ZmockDataComponent } from './zmock-data/zmock-data.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { ZmockDataComponent } from './zmock-data/zmock-data.component';
     ManufaturerHubCarInfoComponent,
     ManufaturerHubOrderRequestsComponent,
     ManufaturerHubStockComponent,
-    ZmockDataComponent
+
   ],
   imports: [
     BrowserModule,

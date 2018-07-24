@@ -1,3 +1,4 @@
+import { RestService } from './../rest.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PoliceHubViewVehiclesComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+    tableData = null;
+    constructor(private restService: RestService) { }
+  
+    ngOnInit() {
+      this.restService.isWorking();
+      this.restService.getAllFrom("vehicle").subscribe(data=>{
+        this.tableData = data;
+        console.log(data);
+      });
+    }
 
 }
