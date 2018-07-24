@@ -8,7 +8,6 @@ import {catchError, map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RestService {
-  url: string = "http://rivaschyper.eastus.cloudapp.azure.com/api/";
 
   constructor(private http: HttpClient) { }
 
