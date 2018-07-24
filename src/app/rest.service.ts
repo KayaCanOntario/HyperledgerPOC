@@ -22,9 +22,9 @@ export class RestService {
   }
 
   // Fetch all X items from the network. The data fetched depends on the 
-  // URL given as a parameter.
-  getAllFrom(url: string): Observable<Vehicle> {
-    return this.http.get(url).pipe(map(data=> data as Vehicle));
+  // URL given as a parameter
+  getAllFrom(url: string): Observable<any> {
+    return this.http.get(url).pipe(map(data=> data as any));
     
   }
 

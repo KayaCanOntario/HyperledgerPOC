@@ -22,7 +22,6 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   {
 
     newVehicle.owner = "resource:org.example.scottpoc.carOwner#1234";
-    newVehicle.$class = "org.example.scottpoc.vehicle";
     console.log(newVehicle);
     this.status = this.restService.postTo(this.asset, newVehicle);
     console.log(this.status);

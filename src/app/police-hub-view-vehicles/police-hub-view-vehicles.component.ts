@@ -16,7 +16,7 @@ export class PoliceHubViewVehiclesComponent implements OnInit {
       this.restService.isWorking();
       this.restService.getAllFrom("vehicle").subscribe(data=>{
         this.tableData = data;
-        console.log(data);
+
       });
     }
 
