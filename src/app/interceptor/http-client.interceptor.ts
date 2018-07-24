@@ -27,13 +27,7 @@ export class HttpClientInterceptor implements HttpInterceptor {
                 'Authorization': `Bearer ${this.getToken()}`,
                 'Content-Type': 'application/json; charset=utf-8',
             })
-            // setHeaders: {
-            //     Authorization: `Bearer ${this.getToken()}`,
-            //     Content-Type: 'application/json; charset=utf-8'
-            // },
         });
-
-        // request.headers.append('Content-Type', 'application/json; charset=utf-8');
 
         return next.handle(request).pipe(catchError(error => {
             this.handleError(error);
@@ -45,14 +39,11 @@ export class HttpClientInterceptor implements HttpInterceptor {
         return localStorage.getItem('app_token');
     }
 
-    private updateUrl(req: string) {
+    private updateUrl(req: string) { //update the url to the proper URL
         return "http://rivaschyper.eastus.cloudapp.azure.com/api/" + req;
     }
 
-    
-
     private handleError(error: Response) {
-
     }
 
     

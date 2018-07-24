@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'police', component: PoliceHubComponent },
   { path: 'police/police-impound', component: PoliceHubImpoundComponent },
   { path: 'police/police-view', component: PoliceHubViewVehiclesComponent },
-  { path: 'police/police-report', component: PoliceHubViewVehiclesComponent },
+  { path: 'police/police-report', component: PoliceHubReportComponent },
   { path: 'manufacturer', component: ManufaturerHubComponent },
   { path: 'manufacturer/new-car', component: ManufaturerHubNewCarComponent },
   { path: 'manufacturer/view-car', component: ManufaturerHubCarInfoComponent },

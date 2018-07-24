@@ -12,4 +12,8 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  createUser(){
+    
+  }
+
 }
