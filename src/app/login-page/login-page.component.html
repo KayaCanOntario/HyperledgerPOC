@@ -22,21 +22,21 @@
           <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
         </div>
         <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="loginTypeSelector">
-            <option selected disabled>Select A Login Type</option>
+            <option disabled value="undefined">Select A Login Type</option>
             <option value="1" >Car Owner</option>
             <option value="2">Insurance Agent</option>
             <option value="3">Manufacturer</option>
             <option value="4">Police Officer</option>
           </select>
-        <button (click)="navigatePage(selector)" class="btn btn-primary">Sign In</button>
+        <button (click)="navigatePage(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Sign In</button>
       </form>
 
       <div class="row justify-content-end">
-        <a class="col-lg-1 col-5" href="#">
+        <a class="col-lg-1 col-5" href="#" style="width: 67px!important;max-width: 67px!important;">
           <small>Terms</small>
         </a>
         <small class="mx-1"> | </small>
-        <a class="col-lg-1 col-5" href="#">
+        <a class="col-lg-1 col-5" href="#" style="width: 70px!important;max-width: 70px!important;">
           <small>Privacy</small>
         </a>
       </div>
