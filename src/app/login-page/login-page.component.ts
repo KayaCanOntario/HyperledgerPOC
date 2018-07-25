@@ -11,20 +11,22 @@ export class LoginPageComponent implements OnInit {
   constructor(public router: Router) { }
 
   ngOnInit() {
+    
   }
 
+  //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string)
   {
-    console.log(mySelector);
+    //console.log(mySelector);
     switch(mySelector)
     {
       case "1":
         this.router.navigate(['/car-owner']);
         break;
-      case "3":
+      case "2":
         this.router.navigate(['/manufacturer']);
         break;
-      case "4":
+      case "3":
         this.router.navigate(['/police']);
         break;
     }
