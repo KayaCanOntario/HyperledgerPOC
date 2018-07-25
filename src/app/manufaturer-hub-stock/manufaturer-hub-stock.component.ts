@@ -10,6 +10,7 @@ export class ManufaturerHubStockComponent implements OnInit {
   tableData = null;
   constructor(private restService: RestService) { }
 
+  //on page load display all vehicles, fetched from the rest server
   ngOnInit() {
     this.restService.isWorking();
     this.restService.getAllFrom("vehicle").subscribe(data=>{
