@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarOwnerHubComponent implements OnInit {
   ownerID : string;
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
-  tableData =[];
+  tableData = [];
   ownerName: string;
   constructor(private restService: RestService) { }
 
@@ -26,7 +26,7 @@ export class CarOwnerHubComponent implements OnInit {
       data.forEach(person2 =>{
         if(person2.ownerId == this.ownerID)
         {
-          this.ownerName = person2.firstName + " "+ person2.lastName;
+          this.ownerName = person2.firstName + " " + person2.lastName;
         }
       })
       

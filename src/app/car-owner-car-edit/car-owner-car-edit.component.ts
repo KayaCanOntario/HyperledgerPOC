@@ -15,7 +15,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   vehicleColour: string = "Blue";
   vehicleInsurance: string = "534573";
 
-  ownerID: string = "1234";
+  ownerID: string;
   ownerName: string;
   constructor(private restService: RestService) { }
 

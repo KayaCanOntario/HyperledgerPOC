@@ -8,7 +8,7 @@ import { RestService } from './../rest.service';
 })
 export class CarOwnerCarNewComponent implements OnInit {
 
-  ownerID: string ="1234";
+  ownerID: string;
   ownerName: string;
   constructor(private restService: RestService) { }
 
