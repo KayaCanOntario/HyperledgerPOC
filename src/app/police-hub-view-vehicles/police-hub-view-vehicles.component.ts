@@ -13,7 +13,6 @@ export class PoliceHubViewVehiclesComponent implements OnInit {
     constructor(private restService: RestService) { }
   
     ngOnInit() {
-      this.restService.isWorking();
       this.restService.getAllFrom("vehicle").subscribe(data=>{
         this.tableData = data;
 
