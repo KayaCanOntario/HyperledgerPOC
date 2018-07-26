@@ -4,7 +4,7 @@
     <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
   </a>
   <div>
-    <span class="mr-3">Welcome James Miller!</span>
+    <span class="mr-3">Welcome {{ownerName}}! [ID 1234]</span>
     <button class="btn btn-outline-warning mr-sm-2" routerLink="/">Sign Out</button>
   </div>
 </nav>
@@ -40,6 +40,23 @@
           </tr>
         </thead>
         <tbody>
+          <tr *ngFor="let row of tableData">
+              <th scope="row">{{row.VIN}}</th>
+              <td>{{row.make}} {{row.model}}</td>
+              <td>{{row.plate}}</td>
+              <td>{{row.colour}}</td>
+              <td>{{row.status}}</td>
+              <td>{{row.insurance}}</td>
+              <td>
+                <button routerLink="/car-owner/car-info" type="button" class="btn btn-link">View</button>
+              </td>
+              <td>
+                <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+          <!--
           <tr>
             <th scope="row">1</th>
             <td>Honda Accord</td>
@@ -82,8 +99,7 @@
               <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>
             </td>
           </tr>
-        </tbody>
-      </table>
+        -->
 
       <div class="row justify-content-end">
         <div class="col-2 mt-4">
