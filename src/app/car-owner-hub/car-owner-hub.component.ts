@@ -10,15 +10,11 @@ export class CarOwnerHubComponent implements OnInit {
   // Owner ID and Owner Prefix. Used when making calls to the API.
   ownerID : string;
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
-<<<<<<< HEAD
-  tableData = [];
-=======
 
   // Table which will be populated with the data fetched from the API.
   tableData =[];
 
   // Owner name which will be fetched from the API.
->>>>>>> c7acdcb835386c86b5278c574628729ac97d84cb
   ownerName: string;
 
 
@@ -32,15 +28,11 @@ export class CarOwnerHubComponent implements OnInit {
         if(person1.email == window.localStorage[0])
         {
           this.ownerID = person1.ownerId;
+          this.ownerName = person1.firstName + " " + person1.lastName;
         }
       })
 
-      data.forEach(person2 =>{
-        if(person2.ownerId == this.ownerID)
-        {
-          this.ownerName = person2.firstName + " " + person2.lastName;
-        }
-      })
+      
     });
 
     // Make a call to the API to fetch all vehicles registered for this user.
