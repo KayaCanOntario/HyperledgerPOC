@@ -4,7 +4,7 @@
     <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
   </a>
   <div>
-    <span class="mr-3">Welcome {{ownerName}}! [ID 1234]</span>
+    <span class="mr-3">Welcome {{ownerName}}! [ID {{ownerID}}]</span>
     <button class="btn btn-outline-warning mr-sm-2" routerLink="/">Sign Out</button>
   </div>
 </nav>
@@ -32,7 +32,7 @@
             <th scope="col">Status
               <i class="fas fa-clipboard-list ml-1"></i>
             </th>
-            <th scope="col">Insurance Until
+            <th scope="col">Insured Until
               <i class="fas fa-hourglass ml-1"></i>
             </th>
             <th scope="col">View Details <i class="fas fa-file-alt ml-1"></i></th>
@@ -48,7 +48,7 @@
               <td>{{row.status}}</td>
               <td>{{row.insurance}}</td>
               <td>
-                <button routerLink="/car-owner/car-info" type="button" class="btn btn-link">View</button>
+                <button [routerLink]="['/car-owner/car-info']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
               </td>
               <td>
                 <button routerLink="/car-owner/car-edit" type="button" class="btn btn-link">Edit</button>

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
   selector: string="undefined";
+  inYourEmail: string;
   constructor(public router: Router) { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class LoginPageComponent implements OnInit {
   //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string)
   {
+    window.localStorage[0] = this.inYourEmail;
     //console.log(mySelector);
     switch(mySelector)
     {
