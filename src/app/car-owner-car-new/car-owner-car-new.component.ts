@@ -8,8 +8,20 @@ import { RestService } from './../rest.service';
 })
 export class CarOwnerCarNewComponent implements OnInit {
 
-  ownerID: string;
+  // Owner ID and Owner Prefix. Used when making calls to the API.
+  ownerID : string;
+  ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
+
+  // Owner name which will be fetched from the API.
   ownerName: string;
+
+  // Details of the new vehicle to be added.
+  vehicleVIN: string;
+  vehicleMake: string;
+
+
+
+
   constructor(private restService: RestService) { }
 
   ngOnInit() {
