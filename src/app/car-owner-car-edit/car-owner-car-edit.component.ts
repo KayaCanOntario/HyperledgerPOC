@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
+import { RouterLink, ActivatedRoute } from '../../../node_modules/@angular/router'; 
+import { Vehicle } from '../models/vehicle';
 
 @Component({
   selector: 'app-car-owner-car-edit',
@@ -17,7 +19,9 @@ export class CarOwnerCarEditComponent implements OnInit {
 
   ownerID: string;
   ownerName: string;
-  constructor(private restService: RestService) { }
+  vinNumber: any = undefined;
+  myVehicle: Vehicle;
+  constructor(private restService: RestService,  private routerLink: ActivatedRoute) { }
 
   ngOnInit() {
     this.restService.isWorking();
@@ -37,6 +41,19 @@ export class CarOwnerCarEditComponent implements OnInit {
         }
       })
       
+    });
+
+    this.routerLink.queryParams.subscribe(params => {
+      this.vinNumber = params["ID"];
+      this.restService.getAllFrom("vehicle").subscribe(data => {
+        data.forEach(vehicle1 => {
+          if(vehicle1.VIN == this.vinNumber)
+          {
+            this.myVehicle = vehicle1;
+
+          }
+        })
+      });
     });
   }
 }
