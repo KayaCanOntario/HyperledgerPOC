@@ -31,8 +31,6 @@ export class CarOwnerHubComponent implements OnInit {
           this.ownerName = person1.firstName + " " + person1.lastName;
         }
       })
-
-      
     });
 
     // Make a call to the API to fetch all vehicles registered for this user.
@@ -44,16 +42,6 @@ export class CarOwnerHubComponent implements OnInit {
         }
       })
     });
-    
-    this.restService.getAllFrom("vehicle").subscribe(data=>{
-      data.forEach(vehic =>{
-        if(vehic.owner == this.ownerPrefix + this.ownerID)
-        {
-          this.tableData.push(vehic);
-        }
-      })
-
-    });
-    
+       
   }
 }

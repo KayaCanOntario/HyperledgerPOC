@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
+import { Vehicle } from './../models/vehicle';
+import { Router } from '@angular/router';  
 
 @Component({
   selector: 'app-car-owner-car-new',
@@ -7,10 +9,12 @@ import { RestService } from './../rest.service';
   styleUrls: ['./car-owner-car-new.component.css']
 })
 export class CarOwnerCarNewComponent implements OnInit {
-
+  status: string;
   ownerID: string;
   ownerName: string;
-  constructor(private restService: RestService) { }
+  vehicle: Vehicle = new Vehicle();
+  asset: string = "vehicle";
+  constructor(public router: Router, private restService: RestService) { }
 
   ngOnInit() {
     console.log(window.localStorage[0]);
@@ -31,6 +35,18 @@ export class CarOwnerCarNewComponent implements OnInit {
         }
       })
       
+    });
+  }
+
+  addCar(newVehicle: Vehicle)
+  {
+    newVehicle.owner = "resource:org.example.scottpoc.carOwner#" + this.ownerID;
+    newVehicle.insurance = "Insured";
+    newVehicle.status = "Active";
+    console.log(newVehicle);
+    this.restService.postTo(this.asset, newVehicle).subscribe(data=>{
+      //this.status=data;
+      //this.router.navigate(['manufacturer']);
     });
   }
 }
