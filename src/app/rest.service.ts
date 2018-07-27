@@ -24,7 +24,6 @@ export class RestService {
   // Fetch all data from the network of a certain type
   getAllFrom(url: string): Observable<any> {
     return this.http.get(url).pipe(map(data=> data as any));
-    
   }
 
 }

@@ -28,13 +28,7 @@ export class CarOwnerHubComponent implements OnInit {
         if(person1.email == window.localStorage[0])
         {
           this.ownerID = person1.ownerId;
-        }
-      })
-
-      data.forEach(person2 =>{
-        if(person2.ownerId == this.ownerID)
-        {
-          this.ownerName = person2.firstName + " " + person2.lastName;
+          this.ownerName = person1.firstName + " " + person1.lastName;
         }
       })
     });
@@ -48,16 +42,6 @@ export class CarOwnerHubComponent implements OnInit {
         }
       })
     });
-    
-    this.restService.getAllFrom("vehicle").subscribe(data=>{
-      data.forEach(vehic =>{
-        if(vehic.owner == this.ownerPrefix + this.ownerID)
-        {
-          this.tableData.push(vehic);
-        }
-      })
-
-    });
-    
+       
   }
 }

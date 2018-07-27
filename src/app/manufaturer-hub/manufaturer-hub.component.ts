@@ -7,11 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manufaturer-hub.component.css']
 })
 export class ManufaturerHubComponent implements OnInit {
-
+  manuID: string;
+  manuName: string;
   constructor(private restService: RestService) { }
 
   ngOnInit() {
-   
+    this.restService.getAllFrom("manufacturer").subscribe(data=>{
+      data.forEach(person1 =>{
+        if(person1.email == window.localStorage[0])
+        {
+          this.manuID = person1.manId;
+          this.manuName = person1.name;
+        }
+      })
+    });
   }
 
 }
