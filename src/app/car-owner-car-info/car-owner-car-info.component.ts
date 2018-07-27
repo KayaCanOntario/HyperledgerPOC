@@ -34,9 +34,6 @@ export class CarOwnerCarInfoComponent implements OnInit {
             this.ownerName = person1.firstName + " " + person1.lastName;
           }
         })
-
-     
-
       });
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
