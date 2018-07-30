@@ -30,9 +30,9 @@ export class ManufaturerHubNewCarComponent implements OnInit {
       })
     });
     this.routerLink.queryParams.subscribe(params => {
-      this.defaultMake = params["make"];
-      this.defaultModel = params["model"];
-      this.defaultColour = params["colour"];
+      this.vehicle.make = params["make"];
+      this.vehicle.model = params["model"];
+      this.vehicle.colour = params["colour"];
     });
   }
 
