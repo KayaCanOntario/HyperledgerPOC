@@ -23,9 +23,7 @@ export class LoginPageComponent implements OnInit {
 
   //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string) {
-    // Check if the email inserted by the user is one of the 
-    // carOwners registered in the network.
-
+    
     switch (mySelector) {
       case "1":
         this.urlType = "carOwner";
@@ -37,6 +35,7 @@ export class LoginPageComponent implements OnInit {
       this.urlType = "policeOfficer";
         break;
     }
+
     this.restService.getAllFrom(this.urlType).subscribe(data => {
       let userFound = false;
 
