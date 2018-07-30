@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute } from '../../../node_modules/@angular/router'; 
+import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router'; 
 import { Vehicle } from '../models/vehicle';
 
 @Component({
@@ -21,27 +21,16 @@ export class CarOwnerCarEditComponent implements OnInit {
   ownerName: string;
   vinNumber: any = undefined;
   myVehicle: Vehicle;
-  constructor(private restService: RestService,  private routerLink: ActivatedRoute) { }
+  constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.restService.isWorking();
-    
-    this.restService.getAllFrom("carOwner").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
-          this.ownerID = person1.ownerId;
-        }
-      })
+    this.ownerID = window.localStorage[1];
+    this.ownerName = window.localStorage[2];
 
-      data.forEach(person2 =>{
-        if(person2.ownerId == this.ownerID)
-        {
-          this.ownerName = person2.firstName + " "+ person2.lastName;
-        }
-      })
-      
-    });
+    // If user is not logged in, go back to homepage.
+    if (!this.ownerID || this.ownerID == '' || this.ownerID == null || this.ownerID == "null") {
+      this.router.navigate(['/']);
+    }
 
     this.routerLink.queryParams.subscribe(params => {
       this.vinNumber = params["ID"];
@@ -56,4 +45,12 @@ export class CarOwnerCarEditComponent implements OnInit {
       });
     });
   }
+
+
+  signOut() {
+    window.localStorage[1] = null;
+    window.localStorage[2] = null;
+
+    this.router.navigate(['/']);
+  } 
 }

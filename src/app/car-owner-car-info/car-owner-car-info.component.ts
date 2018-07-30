@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute } from '../../../node_modules/@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 import { Vehicle } from '../models/vehicle';
 
 @Component({
@@ -13,11 +13,19 @@ export class CarOwnerCarInfoComponent implements OnInit {
   ownerName: string;
   tableData: any;
   vehicleVIN: string;
-  constructor(private restService: RestService, private routerLink: ActivatedRoute) {
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) {
     
   }
 
   ngOnInit() {
+    this.ownerID = window.localStorage[1];
+    this.ownerName = window.localStorage[2];
+
+    // If user is not logged in, go back to homepage.
+    if (!this.ownerID || this.ownerID == '' || this.ownerID == null || this.ownerID == "null") {
+      this.router.navigate(['/']);
+    }
+
     this.getData();
   }
 
@@ -45,5 +53,12 @@ export class CarOwnerCarInfoComponent implements OnInit {
         })
       });
     });
+  }
+
+  signOut() {
+    window.localStorage[1] = null;
+    window.localStorage[2] = null;
+
+    this.router.navigate(['/']);
   }
 }

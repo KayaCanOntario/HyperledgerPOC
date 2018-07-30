@@ -27,13 +27,10 @@ export class CarOwnerHubComponent implements OnInit {
     this.ownerName = window.localStorage[2];
 
     // If user is not logged in, go back to homepage.
-    if (!this.ownerID || this.ownerID == '' || this.ownerID == null) {
+    if (!this.ownerID || this.ownerID == '' || this.ownerID == null || this.ownerID == "null") {
       this.router.navigate(['/']);
     }
 
-
-    // Make a call to the API to fetch user information.
-    this.restService.isWorking();
 
     // Make a call to the API to fetch all vehicles registered for this user.
     this.restService.getAllFrom("vehicle").subscribe(data=>{
@@ -44,6 +41,12 @@ export class CarOwnerHubComponent implements OnInit {
         }
       })
     });
-       
+  }
+
+  signOut() {
+    window.localStorage[1] = null;
+    window.localStorage[2] = null;
+
+    this.router.navigate(['/']);
   }
 }
