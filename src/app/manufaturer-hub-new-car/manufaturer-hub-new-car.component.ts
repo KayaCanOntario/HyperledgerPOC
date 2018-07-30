@@ -1,8 +1,7 @@
+import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
 import { Vehicle } from './../models/vehicle';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';  
-
+import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-manufaturer-hub-new-car',
@@ -15,7 +14,10 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   asset: string = "vehicle";
   manuName: string;
   manuID: string;
-  constructor(private restService: RestService, public router: Router) { }
+  defaultMake: string = undefined;
+  defaultModel:string = undefined;
+  defaultColour:string = undefined;
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
@@ -26,6 +28,11 @@ export class ManufaturerHubNewCarComponent implements OnInit {
           this.manuName = person1.name;
         }
       })
+    });
+    this.routerLink.queryParams.subscribe(params => {
+      this.defaultMake = params["make"];
+      this.defaultModel = params["model"];
+      this.defaultColour = params["colour"];
     });
   }
 

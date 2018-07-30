@@ -26,22 +26,19 @@
             </th>
             <th scope="col">Colour
             </th>
-            <th scope="col">Features
-            </th>
-            <th scope="col">View Details</th>
+            <th scope="col">Create Request</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let row of tableData">
             <th scope="row">1</th>
-            <td>Chevy Nova</td>
-            <td>Jenn Brown</td>
-            <td>Blue</td>
-            <td>N/A</td>
+            <td>{{row.make}} {{row.model}}</td>
+            <td>{{row.owner}}</td>
+            <td>{{row.colour}}</td>
             <td>
-              <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link">Create</button>
+              <button [routerLink]="['/manufacturer/new-car']" [queryParams]="{make:row.make,model:row.model,colour:row.colour}" type="button" class="btn btn-link">Create</button>
             </td>
-          </tr>
+          </tr><!--
           <tr>
             <th scope="row">2</th>
             <td>Honda Accord</td>
@@ -61,7 +58,7 @@
             <td>
               <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link">Create</button>
             </td>
-          </tr>
+          </tr>-->
         </tbody>
       </table>
 
