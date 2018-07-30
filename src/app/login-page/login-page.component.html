@@ -11,6 +11,11 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Sign In</h5>
+
+      <div *ngIf="showError" class="alert alert-danger w-75 mx-auto" role="alert">
+          Invalid Login information. Please try again.
+        </div>
+
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
         <div class="form-group">

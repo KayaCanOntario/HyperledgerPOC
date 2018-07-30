@@ -24,6 +24,15 @@ export class CarOwnerCarNewComponent implements OnInit {
   constructor(public router: Router, private restService: RestService) { }
 
   ngOnInit() {
+    
+    this.ownerID = window.localStorage[1];
+
+    console.log("OwnerID: " + this.ownerID);
+
+    if (!this.ownerID || this.ownerID == '' || this.ownerID == null) {
+      this.router.navigate(['/']);
+    }
+
     console.log(window.localStorage[0]);
     this.restService.isWorking();
 

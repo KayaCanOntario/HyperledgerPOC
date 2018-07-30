@@ -1,5 +1,6 @@
 import { RestService } from './../rest.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-owner-hub',
@@ -18,20 +19,21 @@ export class CarOwnerHubComponent implements OnInit {
   ownerName: string;
 
 
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService, public router: Router) { }
 
   ngOnInit() {
+
+    this.ownerID = window.localStorage[1];
+    this.ownerName = window.localStorage[2];
+
+    // If user is not logged in, go back to homepage.
+    if (!this.ownerID || this.ownerID == '' || this.ownerID == null) {
+      this.router.navigate(['/']);
+    }
+
+
     // Make a call to the API to fetch user information.
     this.restService.isWorking();
-    this.restService.getAllFrom("carOwner").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
-          this.ownerID = person1.ownerId;
-          this.ownerName = person1.firstName + " " + person1.lastName;
-        }
-      })
-    });
 
     // Make a call to the API to fetch all vehicles registered for this user.
     this.restService.getAllFrom("vehicle").subscribe(data=>{
