@@ -25,13 +25,14 @@ export class CarOwnerCarNewComponent implements OnInit {
 
   ngOnInit() {
     
-    this.ownerID = window.localStorage[1];
-    this.ownerName = window.localStorage[2];
-
-    // If user is not logged in, go back to homepage.
-    if (!this.ownerID || this.ownerID == '' || this.ownerID == null || this.ownerID == "null") {
-      this.router.navigate(['/']);
-    }
+    this.restService.getAllFrom("carOwner").subscribe(data => {
+      data.forEach(person => {
+        if (person.email == window.localStorage[0]) {
+          this.ownerID = person.ownerId;
+          this.ownerName = person.firstName + " " + person.lastName;
+        }
+      })
+    });
 
   }
 
@@ -48,12 +49,5 @@ export class CarOwnerCarNewComponent implements OnInit {
       console.log(error);
     });
 
-  }
-
-  signOut() {
-    window.localStorage[1] = null;
-    window.localStorage[2] = null;
-
-    this.router.navigate(['/']);
   }
 }
