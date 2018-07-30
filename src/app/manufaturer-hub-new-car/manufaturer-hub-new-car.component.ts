@@ -43,7 +43,7 @@ export class ManufaturerHubNewCarComponent implements OnInit {
     newVehicle.status = "Active";
     this.restService.postTo(this.asset, newVehicle).subscribe(data=>{
       this.status=data;
-      this.router.navigate(['manufacturer']);
+      this.router.navigate(['/manufacturer']);
     });
 
   }
