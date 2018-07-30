@@ -41,8 +41,6 @@ export class LoginPageComponent implements OnInit {
 
       data.forEach(person1 => {
         if (person1.email == this.inYourEmail) {
-          window.localStorage[1] = person1.ownerId; // Stores ownerId in window local storage.
-          window.localStorage[2] = person1.firstName + " " + person1.lastName; // Stores full name in window local storage
           userFound = true;
         }
 
@@ -52,7 +50,7 @@ export class LoginPageComponent implements OnInit {
         }
 
         window.localStorage[0] = this.inYourEmail;
-        console.log(mySelector);
+        
         switch (mySelector) {
           case "1":
             this.router.navigate(['/car-owner']);
