@@ -129,6 +129,4 @@ export class ZmockDataComponent implements OnInit {
     );
 
   }
-
-
 }
