@@ -9,6 +9,8 @@ import { RestService } from './../rest.service';
 export class ManufaturerHubOrderRequestsComponent implements OnInit {
   manuID: string;
   manuName: string;
+  tableData=[];
+  ownerPrefix="resource:org.example.scottpoc.carOwner#";
   constructor(private restService: RestService) { }
 
   ngOnInit() {
@@ -21,6 +23,25 @@ export class ManufaturerHubOrderRequestsComponent implements OnInit {
         }
       })
     });
+
+    //
+    this.restService.getAllFrom("vehicle").subscribe(data=>{
+      data.forEach(vehic =>{
+        if(vehic.status == "Request")
+        {
+          this.restService.getAllFrom("carOwner").subscribe(data=>{
+            data.forEach(vehic2 =>{
+              if(this.ownerPrefix+vehic2.ownerId == vehic.owner)
+              {
+                vehic.owner=vehic2.firstName + " " + vehic2.lastName;
+              }
+            })
+          });
+          this.tableData.push(vehic);
+        }
+      })
+    });
+
   }
 
 }
