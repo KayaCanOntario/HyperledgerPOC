@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   // Property that controls whether an invalid Login error is shown or not.
   showError: boolean = false;
-
+  urlType: string;
   constructor(public router: Router, private restService: RestService) { }
 
   ngOnInit() {
@@ -25,7 +25,19 @@ export class LoginPageComponent implements OnInit {
   navigatePage(mySelector: string) {
     // Check if the email inserted by the user is one of the 
     // carOwners registered in the network.
-    this.restService.getAllFrom("carOwner").subscribe(data => {
+
+    switch (mySelector) {
+      case "1":
+        this.urlType = "carOwner";
+        break;
+      case "2":
+      this.urlType = "manufacturer";
+        break;
+      case "3":
+      this.urlType = "policeOfficer";
+        break;
+    }
+    this.restService.getAllFrom(this.urlType).subscribe(data => {
       let userFound = false;
 
       data.forEach(person1 => {
@@ -41,7 +53,7 @@ export class LoginPageComponent implements OnInit {
         }
 
         window.localStorage[0] = this.inYourEmail;
-        //console.log(mySelector);
+        console.log(mySelector);
         switch (mySelector) {
           case "1":
             this.router.navigate(['/car-owner']);
