@@ -33,11 +33,6 @@ export class CarOwnerHubComponent implements OnInit {
         }
       })
     });
-
-
-
-
-    
   }
 
   getVehicles() {

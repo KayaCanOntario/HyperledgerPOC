@@ -9,6 +9,10 @@ import { RestService } from './../rest.service';
 export class ManufaturerHubSellCarComponent implements OnInit {
   manuID: string;
   manuName: string;
+
+  // Table which will be populated with the data fetched from the API.
+  tableData =[];
+
   constructor(private restService: RestService) { }
 
   ngOnInit() {
@@ -18,8 +22,18 @@ export class ManufaturerHubSellCarComponent implements OnInit {
         {
           this.manuID = person1.manId;
           this.manuName = person1.name;
+
+          this.getStock();
         }
       })
+    });
+  }
+
+  getStock() {
+    this.restService.getAllFrom("vehicle").subscribe(data => {
+      data.forEach(vehicle => {
+        this.tableData.push(vehicle);
+      });
     });
   }
 

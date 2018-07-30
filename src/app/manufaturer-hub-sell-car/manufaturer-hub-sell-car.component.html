@@ -22,7 +22,7 @@
               <th scope="col">#</th>
               <th scope="col">Model
               </th>
-              <th scope="col">License
+              <th scope="col">Plate
               </th>
               <th scope="col">Colour
               </th>
@@ -32,15 +32,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Honda Accord</td>
-              <td>BTRD 094</td>
-              <td>Blue</td>
+            <tr *ngFor="let row of tableData">
+              <td>{{tableData.indexOf(row) + 1}}</td>
+              <td>{{row.make}} {{row.model}}</td>
+              <td>{{row.plate}}</td>
+              <td>{{row.colour}}</td>
               <td>$10,000</td>
               <td>
                   <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" >Sell</button>
-                </td>
+              </td>
             </tr>
           </tbody>
         </table>
