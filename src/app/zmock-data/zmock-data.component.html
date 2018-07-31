@@ -36,11 +36,27 @@
             </tr>
 
             <tr>
-              <th scope="row">1</th>
+              <th scope="row">2</th>
               <td>Vehicles</td>
               <td *ngIf="vehicleStatus == null">Waiting</td>
               <td *ngIf="vehicleStatus == true">Success</td>
               <td *ngIf="vehicleStatus == false">Failed</td>
+            </tr>
+
+            <tr>
+              <th scope="row">3</th>
+              <td>Manufacturers</td>
+              <td *ngIf="manufacturerStatus == null">Waiting</td>
+              <td *ngIf="manufacturerStatus == true">Success</td>
+              <td *ngIf="manufacturerStatus == false">Failed</td>
+            </tr>
+
+            <tr>
+              <th scope="row">4</th>
+              <td>Police Officer</td>
+              <td *ngIf="policeStatus == null">Waiting</td>
+              <td *ngIf="policeStatus == true">Success</td>
+              <td *ngIf="policeStatus == false">Failed</td>
             </tr>
           </tbody>
         </table>
@@ -51,6 +67,5 @@
           </div>
         </div>
       </div>
-  
     </div>
   </div>

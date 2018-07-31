@@ -2,6 +2,8 @@ import { RestService } from './../rest.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+
+// Mock vehicle data.
 const Vehicles: Array<any> = [{
   "$class": "org.example.scottpoc.vehicle",
   "VIN": "1H1CN41J",
@@ -51,6 +53,7 @@ const Vehicles: Array<any> = [{
   "numSeats": 5
 }]
 
+// Mock car owner data.
 const CarOwners: Array<any> = [
   {
     "$class": "org.example.scottpoc.carOwner",
@@ -76,7 +79,46 @@ const CarOwners: Array<any> = [
     "email": "johnny@gmail.com",
     "pass": "Ex"
   }
+]
 
+// Mock manufacturer data.
+const Manufacturers: Array<any> = [
+  {
+    "$class": "org.example.scottpoc.manufacturer",
+    "manId": "91001",
+    "address": "8882 Del Monte St. Eau Claire, WI 54701",
+    "name": "General Motors",
+    "email": "generalmotors@gmail.com",
+    "pass": "12345678910"
+  },
+  {
+    "$class": "org.example.scottpoc.manufacturer",
+    "manId": "91002",
+    "address": "8882 Del Monte St. Eau Claire, WI 54701",
+    "name": "Ford",
+    "email": "ford@gmail.com",
+    "pass": "12345678910"
+  }
+]
+
+// Mock police officer data.
+const Police: Array<any> = [
+  {
+    "$class": "org.example.scottpoc.policeOfficer",
+    "badgeNumber": "91001",
+    "firstName": "Ryan",
+    "lastName": "Lane",
+    "email": "rlane@gmail.com",
+    "pass": "12345678910"
+  },
+  {
+    "$class": "org.example.scottpoc.policeOfficer",
+    "badgeNumber": "91002",
+    "firstName": "Wilson",
+    "lastName": "Murphy",
+    "email": "wmurphy@gmail.com",
+    "pass": "12345678910"
+  }
 ]
 
 @Component({
@@ -84,28 +126,26 @@ const CarOwners: Array<any> = [
   templateUrl: './zmock-data.component.html',
   styleUrls: ['./zmock-data.component.css']
 })
+
 /*
 * This component is responsible for generating the mock data for the Hyperleger network. 
 * 
 */
-
-
-
-
 export class ZmockDataComponent implements OnInit {
   carOwnerStatus: boolean = null;
   vehicleStatus: boolean = null;
+  manufacturerStatus: boolean = null;
+  policeStatus: boolean = null;
 
   constructor(
     private restService: RestService, // This is used to make calls to the network API.
     private http: HttpClient) { }
 
   ngOnInit() {
-    console.log(JSON.stringify(CarOwners));
 
 
     // Car Owner mock data. Makes a call to the network API, and it passes the mock
-    // data stored the json file as the parameters. 
+    // data stored in a json object.
     this.restService.postTo("carOwner", JSON.stringify(CarOwners)).subscribe(
       (data) => {
         this.carOwnerStatus = true;
@@ -117,7 +157,7 @@ export class ZmockDataComponent implements OnInit {
     );
 
     // Vehicle mock data. Makes a call to the network API, and it passes the mock
-    // data stored the json file as the parameters. 
+    // data stored a json object.
     this.restService.postTo("vehicle", JSON.stringify(Vehicles)).subscribe(
       (data) => {
         this.vehicleStatus = true;
@@ -128,5 +168,26 @@ export class ZmockDataComponent implements OnInit {
       }
     );
 
+    // Manufacturer mock data. Makes a call to the network API, and it passes the mock
+    // data stored in a json object.
+    this.restService.postTo("manufacturer", JSON.stringify(Manufacturers)).subscribe(
+      (data) => {
+        this.manufacturerStatus = true;
+      }, 
+      (error) => {
+        this.manufacturerStatus = false;
+      }
+    );
+
+    // Police officer mock data. Makes a call to the network API, and it passes the mock
+    // data stored in a json object.
+    this.restService.postTo("policeOfficer", JSON.stringify(Police)).subscribe(
+      (data) => {
+        this.policeStatus = true;
+      },
+      (error) => {
+        this.policeStatus = false;
+      }
+    )
   }
 }
