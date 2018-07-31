@@ -22,20 +22,26 @@ export class ManufaturerHubStockComponent implements OnInit {
         {
           this.manuID = person1.manId;
           this.manuName = person1.name;
+
+          this.getVehicles();
         }
       })
     });
 
+    
+    
+  }
+
+  getVehicles() {
     //filter only active vehicles
     this.restService.getAllFrom("vehicle").subscribe(data=>{
       data.forEach(vehicle1 => {
-        if(vehicle1.status == "In Stock" || vehicle1.status == "In Production")
-        {
+        // if(vehicle1.status == "In Stock" || vehicle1.status == "In Production")
+        // {
           this.tableData.push(vehicle1);
-        }
+        // }
       });
     });
-    
   }
 
 }
