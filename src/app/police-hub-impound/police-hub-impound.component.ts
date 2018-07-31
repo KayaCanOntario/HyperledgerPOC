@@ -1,4 +1,4 @@
-import { ImpoundTX } from './../models/impound-tx';
+import { AssetTX } from './../models/asset-tx';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
 import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
@@ -9,7 +9,7 @@ import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angul
   styleUrls: ['./police-hub-impound.component.css']
 })
 export class PoliceHubImpoundComponent implements OnInit {
-  transaction: ImpoundTX = new ImpoundTX();
+  transaction: AssetTX = new AssetTX();
   vinToBeImpounded: string;
   status: string;
   badgeID: string;
@@ -30,6 +30,7 @@ export class PoliceHubImpoundComponent implements OnInit {
 
   impoundCar(thisVIN: string)
   {
+    this.transaction.$class = "org.example.scottpoc.impoundCar";
     this.transaction.asset = "resource:org.example.scottpoc.vehicle#" + thisVIN;
     this.restService.postTo("impoundCar", this.transaction).subscribe(data=>{
       this.status=data;

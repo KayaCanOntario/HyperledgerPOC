@@ -4,7 +4,7 @@
       <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
     </a>
     <div>
-      <span class="mr-3">Welcome Officer!</span>
+      <span class="mr-3">Welcome {{officerName}} [ID {{badgeID}}]!</span>
       <button class="btn btn-outline-warning mr-sm-2" routerLink="/">Sign Out</button>
     </div>
   </nav>
@@ -17,13 +17,14 @@
 
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
-          <div class="form-group">
-              <label for="exampleInputOwner1">Owner</label>
-              <input type="text" class="form-control form-control-lg" id="exampleInputOwner1" aria-describedby="ownerHelp" placeholder="Enter owner">
-            </div>
+        <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="reportTypeSelector">
+          <option disabled value="undefined">Select A Report Type</option>
+          <option value="1">Supsicious</option>
+          <option value="2">Stolen</option>
+        </select>
           <div class="form-group">
             <label for="exampleInputVIN1">VIN</label>
-            <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number">
+            <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number" [(ngModel)]="inputVIN" name="invin">
           </div>
           <div class="form-group">
             <label for="exampleInputMake1">Make</label>
@@ -51,7 +52,7 @@
               <label for="exampleInputNotes1">Additional Notes</label>
               <textarea type="text" class="form-control form-control-lg" id="exampleInputNotes1" aria-describedby="notesHelp" placeholder="Enter additional notes"></textarea>
             </div>
-          <button routerLink="/car-owner" class="btn btn-primary">Submit</button>
+          <button (click)="fileReport(selector, inputVIN)" class="btn btn-primary">Submit</button>
         </form>
   
       
