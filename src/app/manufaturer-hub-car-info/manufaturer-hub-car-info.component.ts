@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
+import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-manufaturer-hub-car-info',
@@ -9,7 +10,9 @@ import { RestService } from './../rest.service';
 export class ManufaturerHubCarInfoComponent implements OnInit {
   manuName: string;
   manuID: string;
-  constructor(private restService: RestService) { }
+  tableData = []
+  vehicleVIN: string;
+  constructor(private routerLink: ActivatedRoute, private restService: RestService) { }
 
   ngOnInit() {
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
@@ -20,6 +23,26 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
           this.manuName = person1.name;
         }
       })
+    });
+    this.getData();
+  }
+
+  getData()
+  {
+    this.routerLink.queryParams.subscribe(params => {
+      const myID = params["ID"];
+      this.vehicleVIN = myID;
+      this.restService.isWorking();
+
+      this.restService.getAllFrom("vehicle").subscribe(data => {
+        data.forEach(vehicle1 => {
+          if(vehicle1.VIN == myID)
+          {
+            this.tableData = vehicle1;
+
+          }
+        })
+      });
     });
   }
 

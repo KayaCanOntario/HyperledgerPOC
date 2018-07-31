@@ -34,7 +34,7 @@
               </th>
               <th scope="col">Height
               </th>
-              <th scope="col">Lenght
+              <th scope="col">Length
               </th>
               <th scope="col">Width
               </th>
@@ -42,16 +42,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Chevy</td>
-              <td>Nova</td>
+            <tr *ngIf="tableData!=undefined && tableData!=null">
+              <td>{{tableData.make}}</td>
+              <td>{{tableData.model}}</td>
               <td>$10,400</td>
-              <td>Blue</td>
-              <td>5</td>
-              <td>18kg</td>
-              <td>2m</td>
-              <td>8m</td>
-              <td>2.2m</td>
+              <td>{{tableData.colour}}</td>
+              <td>{{tableData.numSeats}}</td>
+              <td>{{tableData.weight}}</td>
+              <td>{{tableData.heigth}}</td>
+              <td>{{tableData.length}}</td>
+              <td>{{tableData.width}}</td>
             </tr>
           </tbody>
         </table>

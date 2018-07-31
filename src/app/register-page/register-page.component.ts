@@ -26,7 +26,6 @@ export class RegisterPageComponent implements OnInit {
   }
 
   createUser(mySelector: string){
-    console.log("hi");
     switch(mySelector){
       case "1":
         this.newCarOwner.email = this.inEmail;
@@ -34,7 +33,6 @@ export class RegisterPageComponent implements OnInit {
         this.newCarOwner.lastName = this.inLastName;
         this.newCarOwner.pass = this.inPassword;
         this.newCarOwner.ownerId = (Math.random()*100000000000000000).toString();
-        //console.log(this.newCarOwner);
         this.restService.postTo("carOwner", this.newCarOwner).subscribe(data=>{
           window.localStorage[0] = this.inEmail;
           this.router.navigate(['/car-owner']);
@@ -46,7 +44,6 @@ export class RegisterPageComponent implements OnInit {
         this.newManufacturer.name = this.inFirstName;
         this.newManufacturer.pass = this.inPassword;
         this.newManufacturer.manId = (Math.random()*100000000000000000).toString();
-        //console.log(this.newManufacturer);
         this.restService.postTo("manufacturer", this.newManufacturer).subscribe(data=>{
           window.localStorage[0] = this.inEmail;
           this.router.navigate(['/manufacturer']);
@@ -59,7 +56,6 @@ export class RegisterPageComponent implements OnInit {
         this.newPolice.lastName = this.inLastName;
         this.newPolice.pass = this.inPassword;
         this.newPolice.badgeNumber = (Math.random()*100000000000000000).toString();
-        console.log(this.newPolice);
         this.restService.postTo("policeOfficer", this.newPolice).subscribe(data=>{
           window.localStorage[0] = this.inEmail;
           this.router.navigate(['/police']);

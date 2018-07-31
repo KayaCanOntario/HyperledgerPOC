@@ -40,12 +40,10 @@
                 <td>{{row.status}}</td>
                 <td>{{row.colour}}</td>
                 <td>
-                  <button routerLink="/manufacturer/view-car" type="button" class="btn btn-link">View</button>
+                  <button [routerLink]="['/manufacturer/view-car']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
                 </td>
                 <td>
-                    <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" [disabled]="row.status != 'Active'">Sell</button>
-
-                    
+                  <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" [disabled]="row.status != 'Active'">Sell</button>                    
                   </td>
             </tr>
           

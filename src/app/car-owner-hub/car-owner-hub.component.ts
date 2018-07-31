@@ -28,7 +28,6 @@ export class CarOwnerHubComponent implements OnInit {
         if (person.email == window.localStorage[0]) {
           this.ownerID = person.ownerId;
           this.ownerName = person.firstName + " " + person.lastName;
-
           this.getVehicles();
         }
       })
