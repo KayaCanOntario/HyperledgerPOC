@@ -9,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class PoliceHubViewVehiclesComponent implements OnInit {
 
 
-    tableData = null;
+    tableData = [];
     constructor(private restService: RestService) { }
   
     ngOnInit() {
       this.restService.getAllFrom("vehicle").subscribe(data=>{
-        this.tableData = data;
-
+        data.forEach(vehicle1 =>{
+          if(vehicle1.status != "In Stock")
+          {
+            this.tableData.push(vehicle1)
+          }
+        })
       });
     }
 

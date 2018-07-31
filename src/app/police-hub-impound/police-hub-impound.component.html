@@ -4,7 +4,7 @@
       <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
     </a>
     <div>
-      <span class="mr-3">Welcome Officer!</span>
+      <span class="mr-3">Welcome {{officerName}} [ID {{badgeID}}]!</span>
       <button class="btn btn-outline-warning mr-sm-2" routerLink="/">Sign Out</button>
     </div>
   </nav>
@@ -13,16 +13,12 @@
 <div class="container">
   <div class="card my-5 text-center">
     <div class="card-body">
-      <h5 class="card-title mb-2 mt-5">Report an Impounded Vehicle</h5>
+      <h5 class="card-title mb-2 mt-5">Report Impounded Vehicle</h5>
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
           <div class="form-group">
-              <label for="exampleInputOwner1">Owner</label>
-              <input type="text" class="form-control form-control-lg" id="exampleInputOwner1" aria-describedby="ownerHelp" placeholder="Enter owner">
-            </div>
-          <div class="form-group">
-            <label for="exampleInputVIN1">VIN</label>
-            <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number">
+            <label for="exampleInputVIN1" >VIN</label>
+            <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number" [(ngModel)]="vinToBeImpounded" name="vtbi">
           </div>
           <div class="form-group">
             <label for="exampleInputMake1">Make</label>
@@ -50,7 +46,7 @@
             <label for="exampleInputNotes1">Additional Notes</label>
             <textarea type="text" class="form-control form-control-lg" id="exampleInputNotes1" aria-describedby="notesHelp" placeholder="Enter additional notes"></textarea>
           </div>
-          <button routerLink="/car-owner" class="btn btn-primary">Submit</button>
+          <button (click)="impoundCar(vinToBeImpounded)" class="btn btn-primary">Submit</button>
         </form>
 
       <div class="row justify-content-end">

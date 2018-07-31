@@ -29,7 +29,7 @@ export class ManufaturerHubStockComponent implements OnInit {
     //filter only active vehicles
     this.restService.getAllFrom("vehicle").subscribe(data=>{
       data.forEach(vehicle1 => {
-        if(vehicle1.status == "Active")
+        if(vehicle1.status == "In Stock" || vehicle1.status == "In Production")
         {
           this.tableData.push(vehicle1);
         }
