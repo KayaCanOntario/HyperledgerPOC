@@ -46,7 +46,8 @@
               <td>{{row.make}} {{row.model}}</td>
               <td>{{row.plate}}</td>
               <td>{{row.colour}}</td>
-              <td>{{row.status}}</td>
+              <td ><span *ngIf="row.status!='Active (Suspicious)'">{{row.status}}</span>
+              <span *ngIf="row.status=='Active (Suspicious)'">Active</span></td>
               <td>{{row.insurance}}</td>
               <td>
                 <button [routerLink]="['/car-owner/car-info']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>

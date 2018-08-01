@@ -9,6 +9,7 @@ import { PoliceHubComponent } from './police-hub/police-hub.component';
 import { PoliceHubViewVehiclesComponent } from './police-hub-view-vehicles/police-hub-view-vehicles.component';
 import { PoliceHubImpoundComponent } from './police-hub-impound/police-hub-impound.component';
 import { PoliceHubReportComponent } from './police-hub-report/police-hub-report.component';
+import { PoliceHubViewDetailsComponent} from './police-hub-view-details/police-hub-view-details.component';
 import { ManufaturerHubComponent } from './manufaturer-hub/manufaturer-hub.component';
 import { CarOwnerCarNewComponent } from './car-owner-car-new/car-owner-car-new.component';
 import { ManufaturerHubNewCarComponent } from './manufaturer-hub-new-car/manufaturer-hub-new-car.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'police/police-impound', component: PoliceHubImpoundComponent },
   { path: 'police/police-view', component: PoliceHubViewVehiclesComponent },
   { path: 'police/police-report', component: PoliceHubReportComponent },
+  { path: 'police/police-details', component: PoliceHubViewDetailsComponent},
   { path: 'manufacturer', component: ManufaturerHubComponent },
   { path: 'manufacturer/new-car', component: ManufaturerHubNewCarComponent },
   { path: 'manufacturer/view-car', component: ManufaturerHubCarInfoComponent },

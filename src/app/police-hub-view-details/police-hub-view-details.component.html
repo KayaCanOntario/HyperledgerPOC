@@ -1,0 +1,72 @@
+<!-- Navbar -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a routerLink="/" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{officerName}} [ID {{badgeID}}]!</span>
+    <button class="btn btn-outline-warning mr-sm-2" routerLink="/">Sign Out</button>
+  </div>
+</nav>
+
+<!-- Container for page -->
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <h5 class="card-title my-2">Vehicle VIN#{{vehicleVIN}}</h5>
+      <hr>
+
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Make
+            </th>
+            <th scope="col">Model
+            </th>
+            <th scope="col">License
+            </th>
+            <th scope="col">Colour
+            </th>
+            <th scope="col">Insurance
+            </th>
+            <th scope="col">Insr. Expiry
+            </th>
+            <th scope="col">Seats
+            </th>
+            <th scope="col">Weight
+            </th>
+            <th scope="col">Height
+            </th>
+            <th scope="col">Length
+            </th>
+            <th scope="col">Width
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="tableData!=undefined && tableData!=null">
+            <td>{{tableData.make}}</td>
+            <td>{{tableData.model}}</td>
+            <td>{{tableData.plate}}</td>
+            <td>{{tableData.colour}}</td>
+            <td>534573</td>
+            <td>{{tableData.insurance}}</td>
+            <td>{{tableData.numSeats}}</td>
+            <td>{{tableData.weight}}</td>
+            <td>{{tableData.height}}</td>
+            <td>{{tableData.length}}</td>
+            <td>{{tableData.width}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row justify-content-end">
+        <div class="col-2 mt-4">
+          <button routerLink="/police/police-view" class="btn btn-outline-info">Back to all vehicles</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

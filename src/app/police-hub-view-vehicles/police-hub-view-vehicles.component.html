@@ -40,7 +40,7 @@
               <td>{{row.status}}</td>
               <td>{{row.colour}}</td>
               <td>
-                <button routerLink="/" type="button" class="btn btn-link">View</button>
+                <button [routerLink]="['/police/police-details']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
               </td>
               
           </tr>
