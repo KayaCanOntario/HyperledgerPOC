@@ -43,7 +43,7 @@ export class CarOwnerCarNewComponent implements OnInit {
     console.log(newVehicle);
 
     this.restService.postTo(this.asset, newVehicle).subscribe(data => {
-      //this.status=data;
+      this.status=data;
       this.router.navigate(['car-owner']);
     }, error => {
       console.log(error);

@@ -17,16 +17,18 @@ import { CarOwnerCarNewComponent } from './car-owner-car-new/car-owner-car-new.c
 import { PoliceHubViewVehiclesComponent } from './police-hub-view-vehicles/police-hub-view-vehicles.component';
 import { PoliceHubReportComponent } from './police-hub-report/police-hub-report.component';
 import { PoliceHubImpoundComponent } from './police-hub-impound/police-hub-impound.component';
+import { PoliceHubViewDetailsComponent } from './police-hub-view-details/police-hub-view-details.component';
 import { ManufaturerHubNewCarComponent } from './manufaturer-hub-new-car/manufaturer-hub-new-car.component';
 import { ManufaturerHubSellCarComponent } from './manufaturer-hub-sell-car/manufaturer-hub-sell-car.component';
 import { ManufaturerHubCarInfoComponent } from './manufaturer-hub-car-info/manufaturer-hub-car-info.component';
 import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-requests/manufaturer-hub-order-requests.component';
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
-
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
 import { ZmockDataComponent } from './zmock-data/zmock-data.component';
-import { PoliceHubViewDetailsComponent } from './police-hub-view-details/police-hub-view-details.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
+
+
 
 
 

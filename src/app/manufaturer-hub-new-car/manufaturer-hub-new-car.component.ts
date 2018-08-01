@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
 import { Vehicle } from './../models/vehicle';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-manufaturer-hub-new-car',

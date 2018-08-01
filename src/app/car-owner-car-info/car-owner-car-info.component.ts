@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
-import { Vehicle } from '../models/vehicle';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-car-owner-car-info',
@@ -31,7 +30,9 @@ export class CarOwnerCarInfoComponent implements OnInit {
   }
 
   getData() {
+
     this.routerLink.queryParams.subscribe(params => {
+
       const myID = params["ID"];
       this.vehicleVIN = myID;
       this.restService.isWorking();
@@ -44,15 +45,16 @@ export class CarOwnerCarInfoComponent implements OnInit {
           }
         })
       });
+
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
           if(vehicle1.VIN == myID)
           {
             this.tableData = vehicle1;
-
           }
         })
       });
+
     });
   }
 

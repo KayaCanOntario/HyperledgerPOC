@@ -16,6 +16,8 @@ export class ManufaturerHubSellCarComponent implements OnInit {
   constructor(private restService: RestService) { }
 
   ngOnInit() {
+
+    //use the email in local storage, and use it to gain the user id and manufacturer name
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
       data.forEach(person1 =>{
         if(person1.email == window.localStorage[0])
@@ -29,6 +31,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
     });
   }
 
+  //fetch the stock
   getStock() {
     this.restService.getAllFrom("vehicle").subscribe(data => {
       data.forEach(vehicle => {

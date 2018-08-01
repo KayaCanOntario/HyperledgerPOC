@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { ActivatedRoute } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-manufaturer-hub-car-info',
@@ -15,6 +15,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
   constructor(private routerLink: ActivatedRoute, private restService: RestService) { }
 
   ngOnInit() {
+    //get manufacturer name and id using the email from local storage
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
       data.forEach(person1 =>{
         if(person1.email == window.localStorage[0])
@@ -27,6 +28,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
     this.getData();
   }
 
+  //fetch vehicle that matches desired vehicle id
   getData()
   {
     this.routerLink.queryParams.subscribe(params => {

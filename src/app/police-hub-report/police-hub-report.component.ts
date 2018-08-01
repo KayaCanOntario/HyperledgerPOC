@@ -1,7 +1,7 @@
 import { RestService } from './../rest.service';
 import { Component, OnInit } from '@angular/core';
 import { AssetTX } from '../models/asset-tx';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-police-hub-report',

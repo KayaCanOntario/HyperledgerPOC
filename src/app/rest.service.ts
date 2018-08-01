@@ -1,8 +1,7 @@
-import { Vehicle } from './models/vehicle';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../node_modules/rxjs';
-import {catchError, map} from 'rxjs/operators';
+import { map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

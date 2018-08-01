@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router'; 
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router'; 
 import { Vehicle } from '../models/vehicle';
 
 @Component({
@@ -24,6 +24,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    //use the email from local storage to fetch current user's credentials
     this.restService.getAllFrom("carOwner").subscribe(data => {
       data.forEach(person => {
         if (person.email == window.localStorage[0]) {

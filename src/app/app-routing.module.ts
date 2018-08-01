@@ -21,9 +21,6 @@ import { ManufaturerHubSellCarComponent } from './manufaturer-hub-sell-car/manuf
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
 import { ZmockDataComponent } from './zmock-data/zmock-data.component';
 
-
-
-
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: LoginPageComponent },

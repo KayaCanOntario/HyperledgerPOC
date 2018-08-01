@@ -12,7 +12,9 @@ export class ManufaturerHubComponent implements OnInit {
   constructor(private restService: RestService) { }
 
   ngOnInit() {
+
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
+
       data.forEach(person1 =>{
         if(person1.email == window.localStorage[0])
         {
@@ -20,7 +22,9 @@ export class ManufaturerHubComponent implements OnInit {
           this.manuName = person1.name;
         }
       })
+      
     });
+
   }
 
 }

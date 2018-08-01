@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
-import { Vehicle } from '../models/vehicle';
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-police-hub-view-details',

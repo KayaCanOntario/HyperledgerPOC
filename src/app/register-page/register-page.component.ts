@@ -1,7 +1,7 @@
 import { Manufacturer } from './../models/manufacturer';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { RouterLink, ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { Router } from '../../../node_modules/@angular/router';
 import { CarOwner } from '../models/car-owner';
 import { PoliceOfficer } from '../models/police-officer';
 

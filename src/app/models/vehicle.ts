@@ -1,4 +1,5 @@
 export class Vehicle {
+    
     $class: string = "org.example.scottpoc.vehicle";
     VIN: string;
     colour: string;
