@@ -18,7 +18,7 @@ export class CarOwnerCarNewComponent implements OnInit {
   ownerName: string;
 
   status: string;
-  displayMessage: string = "Hey";
+  displayMessage: string = "undefined";
   vehicle: Vehicle = new Vehicle();
   asset: string = "vehicle";
   constructor(public router: Router, private restService: RestService) { }
@@ -37,6 +37,7 @@ export class CarOwnerCarNewComponent implements OnInit {
   }
 
   addCar(newVehicle: Vehicle) {
+    this.displayMessage = "Processing...";
     newVehicle.owner = this.ownerPrefix + this.ownerID;
     newVehicle.insurance = "Insured";
     newVehicle.status = "Active";

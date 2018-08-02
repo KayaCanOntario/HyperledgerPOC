@@ -11,6 +11,7 @@ import { PoliceOfficer } from '../models/police-officer';
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.css']
 })
+
 export class RegisterPageComponent implements OnInit {
   newCarOwner: CarOwner = new CarOwner();
   newManufacturer: Manufacturer = new Manufacturer();
@@ -20,12 +21,15 @@ export class RegisterPageComponent implements OnInit {
   inLastName: string;
   inPassword: string;
   status: string;
+  selector: string = "undefined";
+  displayMessage: string = "undefined";
   constructor(private restService: RestService, public router: Router) { }
 
   ngOnInit() {
   }
 
   createUser(mySelector: string){
+    this.displayMessage = "Creating account...";
     switch(mySelector){
       case "1":
         this.newCarOwner.email = this.inEmail;

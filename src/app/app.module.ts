@@ -28,11 +28,8 @@ import { ZmockDataComponent } from './zmock-data/zmock-data.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
 
-
-
-
-
 @NgModule({
+  
   declarations: [
     AppComponent,
     HomePageComponent,
@@ -69,7 +66,7 @@ import { HttpClientInterceptor } from './interceptor/http-client.intercepto
       provide: HTTP_INTERCEPTORS,
       useClass: HttpClientInterceptor,
       multi: true,
-      } 
+    } 
 
   ],
   bootstrap: [AppComponent]

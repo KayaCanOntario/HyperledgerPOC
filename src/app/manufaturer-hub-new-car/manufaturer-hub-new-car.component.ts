@@ -17,6 +17,7 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   defaultMake: string = undefined;
   defaultModel:string = undefined;
   defaultColour:string = undefined;
+  displayMessage: string = "undefined";
   constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
@@ -38,14 +39,33 @@ export class ManufaturerHubNewCarComponent implements OnInit {
 
   addCar(newVehicle: Vehicle)
   {
+    this.displayMessage = "Processing...";
     newVehicle.owner = "resource:org.example.scottpoc.carOwner#1234";
     newVehicle.insurance = " ";
     newVehicle.status = "In Stock";
     this.restService.postTo(this.asset, newVehicle).subscribe(data=>{
-      this.status=data;
-      this.router.navigate(['/manufacturer']);
-    });
+      this.displayMessage=data;
+      this.router.navigate(['/manufacturer/stock']);
 
+    }, error => {
+      if (newVehicle.VIN == null || newVehicle.VIN == undefined){
+        this.displayMessage = "VIN field required";
+      }
+      else if (newVehicle.make == null || newVehicle.make == undefined){
+        this.displayMessage = "Make field required";
+      }
+      else if (newVehicle.model == null || newVehicle.model == undefined){
+        this.displayMessage = "Model field required";
+      }
+      else if (newVehicle.plate == null || newVehicle.plate == undefined){
+        this.displayMessage = "License Plate field required";
+      }
+      else{
+        this.displayMessage = "Transaction failed";
+      }
+      //error check for duplicate VIN
+    });
+    
   }
 
 }
