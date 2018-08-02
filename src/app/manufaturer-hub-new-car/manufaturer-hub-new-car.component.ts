@@ -60,10 +60,10 @@ export class ManufaturerHubNewCarComponent implements OnInit {
       else if (newVehicle.plate == null || newVehicle.plate == undefined){
         this.displayMessage = "License Plate field required";
       }
+      //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
       else{
-        this.displayMessage = "Transaction failed";
+        this.displayMessage = "Vehicle with that VIN already exists";
       }
-      //error check for duplicate VIN
     });
     
   }

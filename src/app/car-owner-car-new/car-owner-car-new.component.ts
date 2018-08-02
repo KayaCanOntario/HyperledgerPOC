@@ -41,13 +41,28 @@ export class CarOwnerCarNewComponent implements OnInit {
     newVehicle.owner = this.ownerPrefix + this.ownerID;
     newVehicle.insurance = "Insured";
     newVehicle.status = "Active";
-    console.log(newVehicle);
+    //console.log(newVehicle);
 
     this.restService.postTo(this.asset, newVehicle).subscribe(data => {
       this.status=data;
       this.router.navigate(['car-owner']);
     }, error => {
-      console.log(error);
+      if (newVehicle.VIN == null || newVehicle.VIN == undefined){
+        this.displayMessage = "VIN field required";
+      }
+      else if (newVehicle.make == null || newVehicle.make == undefined){
+        this.displayMessage = "Make field required";
+      }
+      else if (newVehicle.model == null || newVehicle.model == undefined){
+        this.displayMessage = "Model field required";
+      }
+      else if (newVehicle.plate == null || newVehicle.plate == undefined){
+        this.displayMessage = "License Plate field required";
+      }
+      //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
+      else{
+        this.displayMessage = "Vehicle with that VIN already exists";
+      }
     });
 
   }

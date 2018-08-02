@@ -21,6 +21,8 @@ export class CarOwnerCarEditComponent implements OnInit {
   ownerName: string;
   vinNumber: any = undefined;
   myVehicle: Vehicle;
+  newVehicle: Vehicle=new Vehicle();
+  ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
   constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -54,4 +56,20 @@ export class CarOwnerCarEditComponent implements OnInit {
       });
     });
   }
+
+  editCar(newVehicle: Vehicle) {
+    //this.displayMessage = "Processing...";
+    newVehicle.owner = this.ownerPrefix + this.ownerID;
+    newVehicle.insurance = "Insured";
+    newVehicle.status = "Active";
+    //console.log(newVehicle);
+
+    //delete old car
+    this.restService.postTo("vehicle", newVehicle).subscribe(data => {
+      //routerlink
+    });
+
+  }
+
+
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manufaturer-hub-stock.component.css']
 })
 export class ManufaturerHubStockComponent implements OnInit {
-  tableData =[];
+  tableData = [];
   manuID: string;
   manuName: string;
   constructor(private restService: RestService) { }
@@ -29,7 +29,7 @@ export class ManufaturerHubStockComponent implements OnInit {
     //filter only vehicles in stock or in production + todo (filter only owned by this manufacturer)
     this.restService.getAllFrom("vehicle").subscribe(data=>{
       data.forEach(vehicle1 => {
-        console.log(vehicle1.status);
+        //console.log(vehicle1.status);
         if(vehicle1.status == "In Stock")
         {
           this.tableData.push(vehicle1);
