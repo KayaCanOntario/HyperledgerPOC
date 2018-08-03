@@ -13,7 +13,7 @@ export class CarOwnerHubComponent implements OnInit {
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
 
   // Table which will be populated with the data fetched from the API.
-  tableData =[];
+  tableData = [];
 
   // Owner name which will be fetched from the API.
   ownerName: string;

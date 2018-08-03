@@ -27,6 +27,7 @@ import { ZmockDataComponent } from './zmock-data/zmock-data.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
+import { CarOwnerOrderComponent } from './car-owner-order/car-owner-order.component';
 
 @NgModule({
   
@@ -51,7 +52,8 @@ import { HttpClientInterceptor } from './interceptor/http-client.intercepto
     ManufaturerHubOrderRequestsComponent,
     ManufaturerHubStockComponent,
     ZmockDataComponent,
-    PoliceHubViewDetailsComponent
+    PoliceHubViewDetailsComponent,
+    CarOwnerOrderComponent
 
   ],
   imports: [

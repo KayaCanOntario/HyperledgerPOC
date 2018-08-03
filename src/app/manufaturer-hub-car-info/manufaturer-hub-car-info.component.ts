@@ -15,6 +15,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
   constructor(private routerLink: ActivatedRoute, private restService: RestService) { }
 
   ngOnInit() {
+
     //get manufacturer name and id using the email from local storage
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
       data.forEach(person1 =>{
@@ -28,10 +29,11 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
     this.getData();
   }
 
-  //fetch vehicle that matches desired vehicle id
-  getData()
-  {
+  //fetch vehicle that matches desired vehicle id, using query params to properly identify the vehicle
+  getData() {
+
     this.routerLink.queryParams.subscribe(params => {
+
       const myID = params["ID"];
       this.vehicleVIN = myID;
       this.restService.isWorking();
@@ -41,10 +43,10 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
           if(vehicle1.VIN == myID)
           {
             this.tableData = vehicle1;
-
           }
         })
       });
+
     });
   }
 

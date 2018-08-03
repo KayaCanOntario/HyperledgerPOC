@@ -15,6 +15,7 @@ import { CarOwnerCarNewComponent } from './car-owner-car-new/car-owner-car-new.c
 import { ManufaturerHubNewCarComponent } from './manufaturer-hub-new-car/manufaturer-hub-new-car.component';
 import { CarOwnerCarEditComponent } from './car-owner-car-edit/car-owner-car-edit.component';
 import { CarOwnerCarInfoComponent } from './car-owner-car-info/car-owner-car-info.component';
+import { CarOwnerOrderComponent } from './car-owner-order/car-owner-order.component';
 import { ManufaturerHubCarInfoComponent } from './manufaturer-hub-car-info/manufaturer-hub-car-info.component';
 import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-requests/manufaturer-hub-order-requests.component';
 import { ManufaturerHubSellCarComponent } from './manufaturer-hub-sell-car/manufaturer-hub-sell-car.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'car-owner/car-new', component: CarOwnerCarNewComponent },
   { path: 'car-owner/car-edit', component: CarOwnerCarEditComponent },
   { path: 'car-owner/car-info', component: CarOwnerCarInfoComponent },
+  { path: 'car-owner/car-order', component: CarOwnerOrderComponent},
   { path: 'police', component: PoliceHubComponent },
   { path: 'police/police-impound', component: PoliceHubImpoundComponent },
   { path: 'police/police-view', component: PoliceHubViewVehiclesComponent },
