@@ -20,8 +20,8 @@ export class CarOwnerCarEditComponent implements OnInit {
   ownerID: string;
   ownerName: string;
   vinNumber: any = undefined;
-  myVehicle: Vehicle;
-  newVehicle: Vehicle=new Vehicle();
+  myVehicle: Vehicle = new Vehicle();
+  newVehicle: Vehicle = new Vehicle();
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
   constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
 
@@ -59,15 +59,16 @@ export class CarOwnerCarEditComponent implements OnInit {
 
   editCar(newVehicle: Vehicle) {
     //this.displayMessage = "Processing...";
-    newVehicle.owner = this.ownerPrefix + this.ownerID;
-    newVehicle.insurance = "Insured";
-    newVehicle.status = "Active";
+    //newVehicle.owner = this.ownerPrefix + this.ownerID;
+    //newVehicle.insurance = "Insured";
+    //newVehicle.status = "Active";
     //console.log(newVehicle);
-
+    console.log("hi");
+    this.restService.deleteFrom("vehicle/tttttttt");
     //delete old car
-    this.restService.postTo("vehicle", newVehicle).subscribe(data => {
+    //this.restService.postTo("vehicle", newVehicle).subscribe(data => {
       //routerlink
-    });
+    //});
 
   }
 

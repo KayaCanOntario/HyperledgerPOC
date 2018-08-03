@@ -25,4 +25,8 @@ export class RestService {
     return this.http.get(url).pipe(map(data=> data as any));
   }
 
+  deleteFrom(url: string): Observable<any> {
+    return this.http.delete(url);
+  }
+
 }
