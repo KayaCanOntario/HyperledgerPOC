@@ -44,7 +44,12 @@
             <label for="exampleInputInsurance1">Insurance Transaction Number</label>
             <input type="text" class="form-control form-control-lg" id="exampleInputInsurance1" aria-describedby="insuranceHelp" placeholder="Enter the vehicle's insurance number" value="{{vehicleInsurance}}">
           </div>
-          <button (click)="editCar(newVehicle)" class="btn btn-secondary">Submit changes for approval</button>
+
+          <div id="buttonRow">
+            <button id="button1"(click)="editCar(newVehicle)" class="btn btn-secondary">Submit changes for approval</button>
+            <button id="button2" routerLink="/car-owner" class="btn btn-outline-primary" >Back</button>
+          </div>
+          
         </form>
   
         <div class="row justify-content-end">

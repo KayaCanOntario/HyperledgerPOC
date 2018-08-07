@@ -41,7 +41,7 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control form-control-lg mb-3" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="inPassword" name="inYourPass">
-            <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password">
+            <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password" [(ngModel)]="inReEnterPassword" name="inYourReEnter">
           </div>
             
           <button (click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Submit</button>

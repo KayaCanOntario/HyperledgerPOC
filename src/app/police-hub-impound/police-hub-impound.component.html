@@ -46,8 +46,13 @@
             <label for="exampleInputNotes1">Additional Notes</label>
             <textarea type="text" class="form-control form-control-lg" id="exampleInputNotes1" aria-describedby="notesHelp" placeholder="Enter additional notes"></textarea>
           </div>
-          <button (click)="impoundCar(vinToBeImpounded)" class="btn btn-primary">Submit</button>
+          
         </form>
+
+        <div id ="buttonRow">
+          <button id="button1" (click)="impoundCar(vinToBeImpounded)" class="btn btn-primary">Submit</button>
+          <button id="button2" routerLink="/police" class="btn btn-outline-primary" >Back</button>
+        </div>
 
       <div class="row justify-content-end">
         <a class="col-lg-1 col-5" href="#" style="width: 67px!important;max-width: 67px!important;">

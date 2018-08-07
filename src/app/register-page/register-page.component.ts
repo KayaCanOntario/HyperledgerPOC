@@ -20,6 +20,7 @@ export class RegisterPageComponent implements OnInit {
   inFirstName: string;
   inLastName: string;
   inPassword: string;
+  inReEnterPassword: string;
   status: string;
   selector: string = "undefined";
   displayMessage: string = "undefined";
@@ -29,43 +30,48 @@ export class RegisterPageComponent implements OnInit {
   }
 
   createUser(mySelector: string){
-    this.displayMessage = "Creating account...";
-    switch(mySelector){
-      case "1":
-        this.newCarOwner.email = this.inEmail;
-        this.newCarOwner.firstName = this.inFirstName;
-        this.newCarOwner.lastName = this.inLastName;
-        this.newCarOwner.pass = this.inPassword;
-        this.newCarOwner.ownerId = (Math.random()*100000000000000000).toString();
-        this.restService.postTo("carOwner", this.newCarOwner).subscribe(data=>{
-          window.localStorage[0] = this.inEmail;
-          this.router.navigate(['/car-owner']);
-          this.status=data;
-        });
-        break;
-      case "2":
-        this.newManufacturer.email = this.inEmail;
-        this.newManufacturer.name = this.inFirstName;
-        this.newManufacturer.pass = this.inPassword;
-        this.newManufacturer.manId = (Math.random()*100000000000000000).toString();
-        this.restService.postTo("manufacturer", this.newManufacturer).subscribe(data=>{
-          window.localStorage[0] = this.inEmail;
-          this.router.navigate(['/manufacturer']);
-          this.status=data;
-        });
-        break;
-      case "3":
-        this.newPolice.email = this.inEmail;
-        this.newPolice.firstName = this.inFirstName;
-        this.newPolice.lastName = this.inLastName;
-        this.newPolice.pass = this.inPassword;
-        this.newPolice.badgeNumber = (Math.random()*100000000000000000).toString();
-        this.restService.postTo("policeOfficer", this.newPolice).subscribe(data=>{
-          window.localStorage[0] = this.inEmail;
-          this.router.navigate(['/police']);
-          this.status=data;
-        });
-        break;
+    if(this.inPassword == this.inReEnterPassword){
+      this.displayMessage = "Creating account...";
+      switch(mySelector){
+        case "1":
+          this.newCarOwner.email = this.inEmail;
+          this.newCarOwner.firstName = this.inFirstName;
+          this.newCarOwner.lastName = this.inLastName;
+          this.newCarOwner.pass = this.inPassword;
+          this.newCarOwner.ownerId = (Math.random()*100000000000000000).toString();
+          this.restService.postTo("carOwner", this.newCarOwner).subscribe(data=>{
+            window.localStorage[0] = this.inEmail;
+            this.router.navigate(['/car-owner']);
+            this.status=data;
+          });
+          break;
+        case "2":
+          this.newManufacturer.email = this.inEmail;
+          this.newManufacturer.name = this.inFirstName;
+          this.newManufacturer.pass = this.inPassword;
+          this.newManufacturer.manId = (Math.random()*100000000000000000).toString();
+          this.restService.postTo("manufacturer", this.newManufacturer).subscribe(data=>{
+            window.localStorage[0] = this.inEmail;
+            this.router.navigate(['/manufacturer']);
+            this.status=data;
+          });
+          break;
+        case "3":
+          this.newPolice.email = this.inEmail;
+          this.newPolice.firstName = this.inFirstName;
+          this.newPolice.lastName = this.inLastName;
+          this.newPolice.pass = this.inPassword;
+          this.newPolice.badgeNumber = (Math.random()*100000000000000000).toString();
+          this.restService.postTo("policeOfficer", this.newPolice).subscribe(data=>{
+            window.localStorage[0] = this.inEmail;
+            this.router.navigate(['/police']);
+            this.status=data;
+          });
+          break;
+        }
+      }
+      else{
+        this.displayMessage = "Password fields must match";
       }
     
   }

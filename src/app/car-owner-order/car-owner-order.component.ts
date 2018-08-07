@@ -39,7 +39,7 @@ export class CarOwnerOrderComponent implements OnInit {
   addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
     newVehicle.owner = this.ownerPrefix + this.ownerID;
-    newVehicle.insurance = " ";
+    newVehicle.insurance = "Not Insured";
     newVehicle.status = "Request";
     //console.log(newVehicle);
 

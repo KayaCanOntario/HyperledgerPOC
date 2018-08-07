@@ -52,7 +52,12 @@
               <label for="exampleInputNotes1">Additional Notes</label>
               <textarea type="text" class="form-control form-control-lg" id="exampleInputNotes1" aria-describedby="notesHelp" placeholder="Enter additional notes"></textarea>
             </div>
-          <button (click)="fileReport(selector, inputVIN)" class="btn btn-primary">Submit</button>
+          
+        <div id ="buttonRow">
+          <button id="button1"(click)="fileReport(selector, inputVIN)" class="btn btn-primary" >Submit</button>
+          <button id="button2" routerLink="/police" class="btn btn-outline-primary" >Back</button>
+        </div>
+
         </form>
   
       

@@ -26,6 +26,8 @@
             </th>
             <th scope="col">Status
             </th>
+            <th scope="col">Insurance
+            </th>
             <th scope="col">Colour
             </th>
             <th scope="col">View Details</th>
@@ -38,6 +40,7 @@
               <td>{{row.make}} {{row.model}}</td>
               <td>{{row.plate}}</td>
               <td>{{row.status}}</td>
+              <td>{{row.insurance}}</td>
               <td>{{row.colour}}</td>
               <td>
                 <button [routerLink]="['/police/police-details']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
@@ -50,7 +53,7 @@
 
       <div class="row justify-content-end">
         <div class="col-1 mt-4">
-          <button routerLink="/police" class="btn btn-outline-primary">Back</button>
+          <button id="button1" routerLink="/police" class="btn btn-outline-primary">Back</button>
         </div>
       </div>
     </div>

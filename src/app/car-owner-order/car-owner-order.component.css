@@ -7,3 +7,17 @@ h6{
     font-size: 1.5rem !important;
     text-align: center !important;
 }
+
+#button1{
+    width:200px;
+    height:50px;
+    margin-right: 10px;
+}
+#button2{
+    width:200px;
+    height:50px;
+    margin-right: 10px;
+}
+#buttonRow{
+    text-align:center;
+}

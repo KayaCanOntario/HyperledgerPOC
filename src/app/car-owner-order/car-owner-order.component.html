@@ -40,7 +40,10 @@
           <input type="text" [(ngModel)]="vehicle.colour" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle's colour" name="field5">
         </div>
 
-        <button (click)="addCar(vehicle)" class="btn btn-primary">Submit</button>
+        <div id="buttonRow">
+          <button id="button1" (click)="addCar(vehicle)" class="btn btn-primary">Submit</button>
+          <button id="button2" routerLink="/car-owner"class="btn btn-outline-primary" >Back</button>
+        </div>
       </form>
 
 

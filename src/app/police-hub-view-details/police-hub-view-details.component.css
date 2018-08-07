@@ -2,3 +2,9 @@ h5{
     font-size: 2.5rem !important;
     text-align: center !important;
 }
+
+#button1{
+    width:200px;
+    height:50px;
+    float:right;
+}
