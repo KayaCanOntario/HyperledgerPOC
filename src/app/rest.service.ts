@@ -25,6 +25,11 @@ export class RestService {
     return this.http.get(url).pipe(map(data=> data as any));
   }
 
+  // Edit an existing asset.
+  editAsset(url: string, assetID: string, newAsset: any): Observable<any> {
+    return this.http.put(url + '/' + assetID, newAsset).pipe(map(data => data as any));
+  }
+
   deleteFrom(url: string): Observable<any> {
     return this.http.delete(url);
   }

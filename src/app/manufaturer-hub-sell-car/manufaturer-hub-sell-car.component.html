@@ -1,56 +1,49 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a routerLink="/manufacturer" class="navbar-brand">
-      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-    </a>
-    <div>
-      <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
-      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-    </div>
-  </nav>
-  
-  <!-- Container for page -->
-  <div class="container">
-    <div class="card my-5">
-      <div class="card-body">
-        <h5 class="card-title my-2">Sell Vehicle</h5>
-        <hr>
-  
-        <table class="table table-hover">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Model
-              </th>
-              <th scope="col">Plate
-              </th>
-              <th scope="col">Colour
-              </th>
-              <th scope="col">Price
-                </th>
-              <th scope="col">Sell Vehicle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let row of tableData">
-              <td>{{tableData.indexOf(row) + 1}}</td>
-              <td>{{row.make}} {{row.model}}</td>
-              <td>{{row.plate}}</td>
-              <td>{{row.colour}}</td>
-              <td>$10,000</td>
-              <td>
-                  <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" >Sell</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <div class="row justify-content-end">
-          <div class="col-3 mt-4">
-            <button routerLink="/manufacturer/stock" class="btn btn-outline-success">See all vehicles in stock</button>
-          </div>
+  <a routerLink="/manufacturer" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
+    <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
+
+<!-- Container for page -->
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <h5 class="card-title my-2">Sell Vehicle </h5>
+      <h6 class="my-2" style="text-align: center">ID# {{vehicleVIN}}</h6>
+      <hr>
+
+      <div *ngIf="displayMessage!='undefined'" class="alert alert-warning w-75 mx-auto" role="alert">
+        {{displayMessage}}
+      </div>
+
+
+      <!-- Form -->
+      <form class="w-75 mx-auto text-left">
+        <h6 class="my-5">To sell a vehicle, insert the ID# of the user to whom you will sell the vehicle, and also insert the desired amount
+          in US Dollars.</h6>
+        <div class="form-group">
+          <label for="exampleInputID">User ID</label>
+          <input [(ngModel)]="userID" name="idInput" type="text" class="form-control form-control-lg" id="exampleInputID"
+            aria-describedby="idHelp" placeholder="Enter the ID of the buyer">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputAmount">Amount for the vehicle</label>
+          <input [(ngModel)]="vehicleAmount" name="amountInput" type="text" class="form-control form-control-lg" id="exampleInputAmount" placeholder="Amount">
+        </div>
+        <button (click)="sellVehicle()" class="btn btn-primary">Submit</button>
+      </form>
+
+      <div class="row justify-content-end">
+        <div class="col-1 mt-4">
+          <button routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
         </div>
       </div>
-  
     </div>
+
   </div>
+</div>

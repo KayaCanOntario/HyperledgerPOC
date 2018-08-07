@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-manufaturer-hub-sell-car',
@@ -9,11 +10,15 @@ import { RestService } from './../rest.service';
 export class ManufaturerHubSellCarComponent implements OnInit {
   manuID: string;
   manuName: string;
+  vehicleVIN: string;
+  userID: string;
+  vehicleAmount: string;
+  displayMessage: string = "undefined";
 
-  // Table which will be populated with the data fetched from the API.
-  tableData =[];
 
-  constructor(private restService: RestService) { }
+
+
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
 
@@ -28,7 +33,53 @@ export class ManufaturerHubSellCarComponent implements OnInit {
         }
       })
     });
+    
+
+    // Fetch the params.
+    this.routerLink.queryParams.subscribe(params => {
+      this.vehicleVIN = params["ID"];
+      if (this.vehicleVIN == null) {
+        this.router.navigate(['/manufacturer']);
+      }
+     
+    });
   }
 
+  sellVehicle() {
+    this.displayMessage = "undefined";
+    // Checking to see if a user exists with the given 'userID'.
+    this.restService.getAllFrom("carOwner").subscribe(data=>{
+      let found: boolean = false;
+      data.forEach(person =>{
+        if(person.ownerId == this.userID)
+        {
+          found = true;
+          this.changeVehicleProperties();
+        }
+      })
+      if (!found) { // If no such user has been found.
+        this.displayMessage = "No such user found. Please try again.";
+      }
+    });
+  }
 
+  changeVehicleProperties() {
+    this.restService.getAllFrom("vehicle").subscribe(data=>{
+      data.forEach(vehicle =>{
+        if(vehicle.VIN == this.vehicleVIN)
+        {
+          vehicle.colour = "Blue";
+          console.log(vehicle);
+          this.restService.editAsset("vehicle", vehicle.VIN, JSON.stringify(vehicle)).subscribe(
+            (data) => {
+              this.displayMessage = "Success, vehicle has been sold to the user.";
+            },
+            (error) => {
+              console.log(error);
+              this.displayMessage = "Something went wrong, please try again."
+            }
+        }
+      })
+    });
+  }
 }
