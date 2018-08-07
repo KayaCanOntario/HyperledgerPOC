@@ -17,6 +17,7 @@ export class CarOwnerCarInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    //use the email in local storage gain the user's name and ID
     this.restService.getAllFrom("carOwner").subscribe(data => {
       data.forEach(person => {
         if (person.email == window.localStorage[0]) {

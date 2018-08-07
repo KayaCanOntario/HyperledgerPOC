@@ -53,7 +53,7 @@
                 <button [routerLink]="['/car-owner/car-info']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
               </td>
               <td>
-                <button [routerLink]="['/car-owner/car-edit']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link" [disabled]="row.status != 'Request'">Edit</button>
+                <button [routerLink]="['/car-owner/car-edit']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link" [disabled]="row.status=='Request'">Edit</button>
               </td>
           </tr>
         </tbody>
