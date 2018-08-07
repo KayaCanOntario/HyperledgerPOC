@@ -56,7 +56,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   }
 
   editCar() {
-    console.log(this.myVehicle);
+    this.myVehicle.VIN = ""; // Workaround for an error.
     this.restService.editAsset("vehicle", this.myVehicle.VIN, JSON.stringify(this.myVehicle)).subscribe(
       (data) => {
         this.displayMessage = "Success, vehicle information has been updated.";

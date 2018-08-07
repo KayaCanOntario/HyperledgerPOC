@@ -21,6 +21,7 @@ import { ManufaturerHubOrderRequestsComponent } from './manufaturer-hub-order-re
 import { ManufaturerHubSellCarComponent } from './manufaturer-hub-sell-car/manufaturer-hub-sell-car.component';
 import { ManufaturerHubStockComponent } from './manufaturer-hub-stock/manufaturer-hub-stock.component';
 import { ZmockDataComponent } from './zmock-data/zmock-data.component';
+import { ManufacturerHubEditCarComponent } from './manufacturer-hub-edit-car/manufacturer-hub-edit-car.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'manufacturer', component: ManufaturerHubComponent },
   { path: 'manufacturer/new-car', component: ManufaturerHubNewCarComponent },
   { path: 'manufacturer/view-car', component: ManufaturerHubCarInfoComponent },
+  { path: 'manufacturer/edit-car', component: ManufacturerHubEditCarComponent},
   { path: 'manufacturer/order-request', component: ManufaturerHubOrderRequestsComponent },
   { path: 'manufacturer/sell-car', component: ManufaturerHubSellCarComponent },
   { path: 'manufacturer/stock', component: ManufaturerHubStockComponent },
