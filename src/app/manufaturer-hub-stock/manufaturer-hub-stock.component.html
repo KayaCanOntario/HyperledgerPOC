@@ -43,7 +43,8 @@
                   <button [routerLink]="['/manufacturer/view-car']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
                 </td>
                 <td>
-                  <button routerLink="/manufacturer/new-car" type="button" class="btn btn-link" [disabled]="row.status != 'In Stock'">Sell</button>                    
+                  <button routerLink="/manufacturer/sell-car" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link" >Sell</button>            
+                  <!-- [disabled]="row.status != 'In Stock'"         -->
                   </td>
             </tr>
           
