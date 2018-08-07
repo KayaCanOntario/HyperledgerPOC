@@ -25,19 +25,10 @@ export class ManufaturerHubSellCarComponent implements OnInit {
           this.manuID = person1.manId;
           this.manuName = person1.name;
 
-          this.getStock();
         }
       })
     });
   }
 
-  //fetch the stock
-  getStock() {
-    this.restService.getAllFrom("vehicle").subscribe(data => {
-      data.forEach(vehicle => {
-        this.tableData.push(vehicle);
-      });
-    });
-  }
 
 }

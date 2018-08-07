@@ -14,7 +14,6 @@ export class ManufaturerHubStockComponent implements OnInit {
 
   //on page load display all vehicles, fetched from the rest server
   ngOnInit() {
-    this.restService.isWorking();
 
     this.restService.getAllFrom("manufacturer").subscribe(data=>{
       data.forEach(person1 =>{
@@ -22,21 +21,22 @@ export class ManufaturerHubStockComponent implements OnInit {
         {
           this.manuID = person1.manId;
           this.manuName = person1.name;
+
+          this.getStock();
         }
       })
     });
 
-    //filter only vehicles in stock or in production + todo (filter only owned by this manufacturer)
-    this.restService.getAllFrom("vehicle").subscribe(data=>{
-      data.forEach(vehicle1 => {
-        //console.log(vehicle1.status);
-        if(vehicle1.status == "In Stock")
-        {
-          this.tableData.push(vehicle1);
-        }
-      });
-    });
     
   }
+
+    //fetch the stock
+    getStock() {
+      this.restService.getAllFrom("vehicle").subscribe(data => {
+        data.forEach(vehicle => {
+          this.tableData.push(vehicle);
+        });
+      });
+    }
 
 }
