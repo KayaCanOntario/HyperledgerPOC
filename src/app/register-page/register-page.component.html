@@ -11,7 +11,8 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Sign Up</h5>
-      <h6 class="card-title mb-2 mt-5" name="statusBar" *ngIf="displayMessage!='undefined'">{{displayMessage}}</h6>
+      <h6 class="card-title mb-2 mt-5">Already Have An Account? <a routerLink="/login">Sign In.</a></h6>
+      <h4 class="card-title mb-2 mt-5" name="statusBar" *ngIf="displayMessage!='undefined'">{{displayMessage}}</h4>
       
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
@@ -44,7 +45,10 @@
             <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password" [(ngModel)]="inReEnterPassword" name="inYourReEnter">
           </div>
             
-          <button (click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Submit</button>
+          <div id="buttonRow">
+          <button id="button1"(click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Submit</button>
+          <button id="button2" routerLink="/" class="btn btn-outline-primary" >Back</button>
+          </div>
         </form>
 
       <div class="row justify-content-end">
