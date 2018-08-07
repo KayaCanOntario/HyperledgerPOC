@@ -11,10 +11,10 @@ import { Vehicle } from '../models/vehicle';
 export class CarOwnerCarEditComponent implements OnInit {
   vehicleOwner: string = "James Miller";
   vehicleVIN: string = "1HGCN41JXMN109186";
-  vehicleMake: string = "Chevy";
-  vehicleModel: string = "Nova";
-  vehicleLicense: string = "BTRD 094";
-  vehicleColour: string = "Blue";
+  vehicleMake: string;
+  vehicleModel: string;
+  vehicleLicense: string;
+  vehicleColour: string;
   vehicleInsurance: string = "534573";
 
   ownerID: string;
@@ -22,6 +22,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   vinNumber: any = undefined;
   myVehicle: Vehicle = new Vehicle();
   newVehicle: Vehicle = new Vehicle();
+  displayMessage: string = 'undefined';
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
   constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
 
@@ -37,8 +38,6 @@ export class CarOwnerCarEditComponent implements OnInit {
         }
       })
     });
-
-    
   }
 
 
@@ -50,26 +49,23 @@ export class CarOwnerCarEditComponent implements OnInit {
           if(vehicle1.VIN == this.vinNumber)
           {
             this.myVehicle = vehicle1;
-
           }
         })
       });
     });
   }
 
-  editCar(newVehicle: Vehicle) {
-    //this.displayMessage = "Processing...";
-    //newVehicle.owner = this.ownerPrefix + this.ownerID;
-    //newVehicle.insurance = "Insured";
-    //newVehicle.status = "Active";
-    //console.log(newVehicle);
-    console.log("hi");
-    this.restService.deleteFrom("vehicle/tttttttt");
-    //delete old car
-    //this.restService.postTo("vehicle", newVehicle).subscribe(data => {
-      //routerlink
-    //});
-
+  editCar() {
+    console.log(this.myVehicle);
+    this.restService.editAsset("vehicle", this.myVehicle.VIN, JSON.stringify(this.myVehicle)).subscribe(
+      (data) => {
+        this.displayMessage = "Success, vehicle information has been updated.";
+      },
+      (error) => {
+        console.log(error);
+        this.displayMessage = "Something went wrong, please try again."
+      }
+    )
   }
 
 

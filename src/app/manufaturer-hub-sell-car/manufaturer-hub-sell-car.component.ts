@@ -80,6 +80,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
               console.log(error);
               this.displayMessage = "Something went wrong, please try again."
             }
+          )
         }
       })
     });
