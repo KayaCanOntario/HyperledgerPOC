@@ -47,6 +47,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
 
   sellVehicle() {
     this.displayMessage = "undefined";
+
     // Checking to see if a user exists with the given 'userID'.
     this.restService.getAllFrom("carOwner").subscribe(data=>{
       let found: boolean = false;
@@ -68,7 +69,8 @@ export class ManufaturerHubSellCarComponent implements OnInit {
       data.forEach(vehicle =>{
         if(vehicle.VIN == this.vehicleVIN)
         {
-          vehicle.colour = "Blue";
+          vehicle.owner = "resource:org.example.scottpoc.carOwner#" + this.userID; // Vehicle owner is changed.
+          vehicle.status = "Active"; // Vehicle status is changed.
           console.log(vehicle);
           this.restService.editAsset("vehicle", vehicle.VIN, JSON.stringify(vehicle)).subscribe(
             (data) => {
