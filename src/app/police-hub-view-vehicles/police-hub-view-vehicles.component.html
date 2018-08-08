@@ -51,6 +51,10 @@
         </tbody>
       </table>
 
+      <p *ngIf="tableData.length==0">
+        There Are No Vehicles Registered
+      </p>
+
       <div class="row justify-content-end">
         <div class="col-1 mt-4">
           <button id="button1" routerLink="/police" class="btn btn-outline-primary">Back</button>

@@ -12,6 +12,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
   manuID: string;
   tableData = []
   vehicleVIN: string;
+  masterID: string;
   constructor(private routerLink: ActivatedRoute, private restService: RestService) { }
 
   ngOnInit() {
@@ -35,6 +36,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
     this.routerLink.queryParams.subscribe(params => {
 
       const myID = params["ID"];
+      this.masterID = myID;
       this.vehicleVIN = myID;
       this.restService.isWorking();
 
