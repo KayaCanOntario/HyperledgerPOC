@@ -25,16 +25,16 @@ export class ManufaturerHubStockComponent implements OnInit {
           this.getStock();
         }
       })
-    });
-
-    
+    });    
   }
 
     //fetch the stock
     getStock() {
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle => {
-          this.tableData.push(vehicle);
+            if(vehicle.manufacturedBy == "resource:org.example.scottpoc.manufacturer#" + this.manuID && vehicle.status == "In Stock"){
+              this.tableData.push(vehicle);
+            }
         });
       });
     }

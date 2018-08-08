@@ -40,9 +40,8 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   addCar(newVehicle: Vehicle)
   {
     this.displayMessage = "Processing...";
-    newVehicle.owner = "resource:org.example.scottpoc.carOwner#1234";
-    newVehicle.insurance = " ";
     newVehicle.status = "In Stock";
+    newVehicle.manufacturedBy = "resource:org.example.scottpoc.manufacturer#" + this.manuID;
     this.restService.postTo(this.asset, newVehicle).subscribe(data=>{
       this.displayMessage=data;
       this.router.navigate(['/manufacturer/stock']);

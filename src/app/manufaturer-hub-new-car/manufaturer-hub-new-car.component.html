@@ -59,7 +59,11 @@
             Additional feature 3
           </label>
         </div>
-        <button  class="btn btn-primary mt-4" (click)="addCar(vehicle)">Submit</button>
+        <div id="buttonRow">
+          <button id="button1"class="btn btn-primary" (click)="addCar(vehicle)">Submit</button>
+          <button id="button2"routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
+
+        </div>
       </form>
 
       <div class="row justify-content-end">
@@ -73,11 +77,6 @@
       </div>
 
       <!-- Gross positioning temporary button-->
-      <div class="row justify-content-end">
-          <div class="col-1 mt-4">
-            <button routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
-          </div>
-
-     </div>
+     
   </div>
 </div>
