@@ -11,6 +11,7 @@ import { RestService } from './../rest.service';
 export class LoginPageComponent implements OnInit {
   selector: string = "undefined";
   inYourEmail: string;
+  inYourPass: string;
 
   // Property that controls whether an invalid Login error is shown or not.
   showError: boolean = false;
@@ -40,7 +41,7 @@ export class LoginPageComponent implements OnInit {
       let userFound = false;
 
       data.forEach(person1 => {
-        if (person1.email == this.inYourEmail) {
+        if (person1.email == this.inYourEmail && person1.pass == this.inYourPass) {
           userFound = true;
         }
 
