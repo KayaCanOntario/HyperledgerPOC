@@ -10,6 +10,7 @@ export class Vehicle {
     model: string;
     numSeats: number;
     owner: string;
+    manufacturedBy: string;
     plate: string;
     status: string;
     weight: number;
