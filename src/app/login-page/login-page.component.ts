@@ -24,6 +24,7 @@ export class LoginPageComponent implements OnInit {
 
   //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string) {
+
     
     switch (mySelector) {
       case "1":
@@ -65,10 +66,5 @@ export class LoginPageComponent implements OnInit {
         }
       })
     });
-
-
-
-
   }
-
 }

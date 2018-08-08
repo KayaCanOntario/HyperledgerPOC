@@ -29,7 +29,7 @@ export class ManufaturerHubOrderRequestsComponent implements OnInit {
     //get all vehicles that have beeen requested and fetch their appropriate owner name
     this.restService.getAllFrom("vehicle").subscribe(data=>{
       data.forEach(vehic =>{
-        if(vehic.status == "Request")
+        if(vehic.status == "Request" && vehic.make == this.manuName)
         {
           this.restService.getAllFrom("carOwner").subscribe(data=>{
             data.forEach(vehic2 =>{
