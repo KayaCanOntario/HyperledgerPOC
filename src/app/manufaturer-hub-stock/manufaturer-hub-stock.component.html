@@ -20,14 +20,10 @@
           <thead class="thead-light">
             <tr>
               <th scope="col">VIN</th>
-              <th scope="col">Model
-              </th>
-              <th scope="col">License
-              </th>
-              <th scope="col">Status
-              </th>
-              <th scope="col">Colour
-              </th>
+              <th scope="col">Model</th>
+              <th scope="col">License</th>
+              <th scope="col">Status</th>
+              <th scope="col">Colour</th>
               <th scope="col">View Details</th>
               <th scope="col">Sell Vehicle</th>
             </tr>
@@ -50,7 +46,11 @@
           
           </tbody>
         </table>
-  
+
+        <p *ngIf="tableData.length==0">
+          There Are No Vehicles In Stock
+        </p>
+
         <div class="row justify-content-end">
           <div class="col-1 mt-4">
             <button id="button1" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>

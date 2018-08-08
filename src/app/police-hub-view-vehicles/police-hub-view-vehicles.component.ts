@@ -25,7 +25,7 @@ export class PoliceHubViewVehiclesComponent implements OnInit {
 
       this.restService.getAllFrom("vehicle").subscribe(data=>{
         data.forEach(vehicle1 =>{
-          if(vehicle1.status != "In Stock")
+          if(vehicle1.status != "In Stock" && vehicle1.status != "Request")
           {
             this.tableData.push(vehicle1)
           }
