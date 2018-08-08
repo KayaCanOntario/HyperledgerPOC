@@ -13,17 +13,16 @@ export class ManufaturerHubComponent implements OnInit {
 
   ngOnInit() {
 
-    this.restService.getAllFrom("manufacturer").subscribe(data=>{
+    this.restService.getAllFrom("manufacturer").subscribe(data => {
 
       //find the manufacturer name and ID from the API, using the email in local storage to locate them
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
+      data.forEach(person1 => {
+        if (person1.email == window.localStorage[0]) {
           this.manuID = person1.manId;
           this.manuName = person1.name;
         }
       })
-      
+
     });
 
   }

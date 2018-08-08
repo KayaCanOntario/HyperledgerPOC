@@ -24,7 +24,7 @@ export class CarOwnerCarNewComponent implements OnInit {
   constructor(public router: Router, private restService: RestService) { }
 
   ngOnInit() {
-    
+
     this.restService.getAllFrom("carOwner").subscribe(data => {
       data.forEach(person => {
         if (person.email == window.localStorage[0]) {
@@ -36,34 +36,34 @@ export class CarOwnerCarNewComponent implements OnInit {
 
   }
 
+  //add new vehicle with the user entered values
   addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
     newVehicle.owner = this.ownerPrefix + this.ownerID;
     newVehicle.insurance = "Insured";
     newVehicle.status = "Active";
-    //console.log(newVehicle);
 
     this.restService.postTo(this.asset, newVehicle).subscribe(data => {
-      this.status=data;
+      this.status = data;
       this.router.navigate(['car-owner']);
     }, error => {
-      if (newVehicle.VIN == null || newVehicle.VIN == undefined){
+      if (newVehicle.VIN == null || newVehicle.VIN == undefined) {
         this.displayMessage = "VIN field required";
       }
-      else if (newVehicle.make == null || newVehicle.make == undefined){
+      else if (newVehicle.make == null || newVehicle.make == undefined) {
         this.displayMessage = "Make field required";
       }
-      else if (newVehicle.model == null || newVehicle.model == undefined){
+      else if (newVehicle.model == null || newVehicle.model == undefined) {
         this.displayMessage = "Model field required";
       }
-      else if (newVehicle.plate == null || newVehicle.plate == undefined){
+      else if (newVehicle.plate == null || newVehicle.plate == undefined) {
         this.displayMessage = "License Plate field required";
       }
-      else if (newVehicle.colour == null || newVehicle.colour == undefined){
+      else if (newVehicle.colour == null || newVehicle.colour == undefined) {
         this.displayMessage = "Colour field required";
       }
       //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
-      else{
+      else {
         this.displayMessage = "Vehicle with that VIN already exists";
       }
     });

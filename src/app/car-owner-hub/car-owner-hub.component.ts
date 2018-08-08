@@ -34,8 +34,8 @@ export class CarOwnerHubComponent implements OnInit {
     });
   }
 
+  // Make a call to the API to fetch all vehicles registered for this user.
   getVehicles() {
-    // Make a call to the API to fetch all vehicles registered for this user.
     this.restService.getAllFrom("vehicle").subscribe(data=>{
       data.forEach(vehic =>{
         if(vehic.owner == this.ownerPrefix + this.ownerID)

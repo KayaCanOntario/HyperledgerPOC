@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
-import { ActivatedRoute, Router } from '../../../node_modules/@angular/router'; 
+import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 import { Vehicle } from '../models/vehicle';
 
 @Component({
@@ -24,7 +24,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   newVehicle: Vehicle = new Vehicle();
   displayMessage: string = 'undefined';
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
-  constructor(private restService: RestService,  private routerLink: ActivatedRoute, private router: Router) { }
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     //use the email from local storage to fetch current user's credentials
@@ -40,14 +40,13 @@ export class CarOwnerCarEditComponent implements OnInit {
     });
   }
 
-
+  //fetch vehicle using the desired ID
   getVehicle() {
     this.routerLink.queryParams.subscribe(params => {
       this.vinNumber = params["ID"];
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
-          if(vehicle1.VIN == this.vinNumber)
-          {
+          if (vehicle1.VIN == this.vinNumber) {
             this.myVehicle = vehicle1;
           }
         })
@@ -55,6 +54,7 @@ export class CarOwnerCarEditComponent implements OnInit {
     });
   }
 
+  //edits the members of the given vehicle asset
   editCar() {
     this.myVehicle.VIN = ""; // Workaround for an error.
     this.restService.editAsset("vehicle", this.myVehicle.VIN, JSON.stringify(this.myVehicle)).subscribe(

@@ -23,17 +23,16 @@ export class ManufaturerHubSellCarComponent implements OnInit {
   ngOnInit() {
 
     //use the email in local storage, and use it to gain the user id and manufacturer name
-    this.restService.getAllFrom("manufacturer").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
+    this.restService.getAllFrom("manufacturer").subscribe(data => {
+      data.forEach(person1 => {
+        if (person1.email == window.localStorage[0]) {
           this.manuID = person1.manId;
           this.manuName = person1.name;
 
         }
       })
     });
-    
+
 
     // Fetch the params.
     this.routerLink.queryParams.subscribe(params => {
@@ -41,7 +40,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
       if (this.vehicleVIN == null) {
         this.router.navigate(['/manufacturer']);
       }
-     
+
     });
   }
 
@@ -49,11 +48,10 @@ export class ManufaturerHubSellCarComponent implements OnInit {
     this.displayMessage = "undefined";
 
     // Checking to see if a user exists with the given 'userID'.
-    this.restService.getAllFrom("carOwner").subscribe(data=>{
+    this.restService.getAllFrom("carOwner").subscribe(data => {
       let found: boolean = false;
-      data.forEach(person =>{
-        if(person.ownerId == this.userID)
-        {
+      data.forEach(person => {
+        if (person.ownerId == this.userID) {
           found = true;
           this.changeVehicleProperties();
         }
@@ -65,10 +63,9 @@ export class ManufaturerHubSellCarComponent implements OnInit {
   }
 
   changeVehicleProperties() {
-    this.restService.getAllFrom("vehicle").subscribe(data=>{
-      data.forEach(vehicle =>{
-        if(vehicle.VIN == this.vehicleVIN)
-        {
+    this.restService.getAllFrom("vehicle").subscribe(data => {
+      data.forEach(vehicle => {
+        if (vehicle.VIN == this.vehicleVIN) {
           vehicle.owner = "resource:org.example.scottpoc.carOwner#" + this.userID; // Vehicle owner is changed.
           vehicle.status = "Active"; // Vehicle status is changed.
           this.restService.editAsset("vehicle", vehicle.VIN, JSON.stringify(vehicle)).subscribe(

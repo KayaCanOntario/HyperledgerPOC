@@ -15,16 +15,15 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   manuName: string;
   manuID: string;
   defaultMake: string = undefined;
-  defaultModel:string = undefined;
-  defaultColour:string = undefined;
+  defaultModel: string = undefined;
+  defaultColour: string = undefined;
   displayMessage: string = "undefined";
   constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router) { }
 
   ngOnInit() {
-    this.restService.getAllFrom("manufacturer").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
+    this.restService.getAllFrom("manufacturer").subscribe(data => {
+      data.forEach(person1 => {
+        if (person1.email == window.localStorage[0]) {
           this.manuID = person1.manId;
           this.manuName = person1.name;
         }
@@ -37,37 +36,36 @@ export class ManufaturerHubNewCarComponent implements OnInit {
     });
   }
 
-  addCar(newVehicle: Vehicle)
-  {
+  addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
     newVehicle.status = "In Stock";
     newVehicle.manufacturedBy = "resource:org.example.scottpoc.manufacturer#" + this.manuID;
-    this.restService.postTo(this.asset, newVehicle).subscribe(data=>{
-      this.displayMessage=data;
+    this.restService.postTo(this.asset, newVehicle).subscribe(data => {
+      this.displayMessage = data;
       this.router.navigate(['/manufacturer/stock']);
 
     }, error => {
-      if (newVehicle.VIN == null || newVehicle.VIN == undefined){
+      if (newVehicle.VIN == null || newVehicle.VIN == undefined) {
         this.displayMessage = "VIN field required";
       }
-      else if (newVehicle.make == null || newVehicle.make == undefined){
+      else if (newVehicle.make == null || newVehicle.make == undefined) {
         this.displayMessage = "Make field required";
       }
-      else if (newVehicle.model == null || newVehicle.model == undefined){
+      else if (newVehicle.model == null || newVehicle.model == undefined) {
         this.displayMessage = "Model field required";
       }
-      else if (newVehicle.plate == null || newVehicle.plate == undefined){
+      else if (newVehicle.plate == null || newVehicle.plate == undefined) {
         this.displayMessage = "License Plate field required";
       }
-      else if (newVehicle.colour == null || newVehicle.colour == undefined){
+      else if (newVehicle.colour == null || newVehicle.colour == undefined) {
         this.displayMessage = "Colour field required";
       }
       //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
-      else{
+      else {
         this.displayMessage = "Vehicle with that VIN already exists";
       }
     });
-    
+
   }
 
 }

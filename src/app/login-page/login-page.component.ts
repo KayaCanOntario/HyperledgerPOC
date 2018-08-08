@@ -25,16 +25,15 @@ export class LoginPageComponent implements OnInit {
   //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string) {
 
-    
     switch (mySelector) {
       case "1":
         this.urlType = "carOwner";
         break;
       case "2":
-      this.urlType = "manufacturer";
+        this.urlType = "manufacturer";
         break;
       case "3":
-      this.urlType = "policeOfficer";
+        this.urlType = "policeOfficer";
         break;
     }
 
@@ -52,7 +51,7 @@ export class LoginPageComponent implements OnInit {
         }
 
         window.localStorage[0] = this.inYourEmail;
-        
+
         switch (mySelector) {
           case "1":
             this.router.navigate(['/car-owner']);

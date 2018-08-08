@@ -18,10 +18,9 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
   ngOnInit() {
 
     //get manufacturer name and id using the email from local storage
-    this.restService.getAllFrom("manufacturer").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
+    this.restService.getAllFrom("manufacturer").subscribe(data => {
+      data.forEach(person1 => {
+        if (person1.email == window.localStorage[0]) {
           this.manuID = person1.manId;
           this.manuName = person1.name;
         }
@@ -42,8 +41,7 @@ export class ManufaturerHubCarInfoComponent implements OnInit {
 
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
-          if(vehicle1.VIN == myID)
-          {
+          if (vehicle1.VIN == myID) {
             this.tableData = vehicle1;
           }
         })

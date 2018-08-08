@@ -13,7 +13,7 @@ export class CarOwnerCarInfoComponent implements OnInit {
   tableData: any;
   vehicleVIN: string;
   constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) {
-    
+
   }
 
   ngOnInit() {
@@ -30,6 +30,7 @@ export class CarOwnerCarInfoComponent implements OnInit {
     this.getData();
   }
 
+  //fetch the car associated with the provided ID
   getData() {
 
     this.routerLink.queryParams.subscribe(params => {
@@ -49,8 +50,7 @@ export class CarOwnerCarInfoComponent implements OnInit {
 
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
-          if(vehicle1.VIN == myID)
-          {
+          if (vehicle1.VIN == myID) {
             this.tableData = vehicle1;
           }
         })
