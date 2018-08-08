@@ -31,23 +31,23 @@
             <th scope="col">Colour
             </th>
             <th scope="col">View Details</th>
-            
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let row of tableData">
-              <th scope="row">{{row.VIN}}</th>
-              <td>{{row.make}} {{row.model}}</td>
-              <td>{{row.plate}}</td>
-              <td>{{row.status}}</td>
-              <td>{{row.insurance}}</td>
-              <td>{{row.colour}}</td>
-              <td>
-                <button [routerLink]="['/police/police-details']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
-              </td>
-              
+            <th scope="row">{{row.VIN}}</th>
+            <td>{{row.make}} {{row.model}}</td>
+            <td>{{row.plate}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.insurance}}</td>
+            <td>{{row.colour}}</td>
+            <td>
+              <button [routerLink]="['/police/police-details']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
+            </td>
+
           </tr>
-        
+
         </tbody>
       </table>
 

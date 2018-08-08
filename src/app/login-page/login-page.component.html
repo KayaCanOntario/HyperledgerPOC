@@ -11,17 +11,19 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Sign In</h5>
-      <h6 class="card-title mb-2 mt-5">Don't Have An Account Yet? <a routerLink="/signup">Create One.</a></h6>
+      <h6 class="card-title mb-2 mt-5">Don't Have An Account Yet?
+        <a routerLink="/signup">Create One.</a>
+      </h6>
 
       <div *ngIf="showError" class="alert alert-danger w-75 mx-auto" role="alert">
-          Invalid Login information. Please try again.
-        </div>
+        Invalid Login information. Please try again.
+      </div>
 
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
         <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="loginTypeSelector">
           <option disabled value="undefined">Select A Login Type</option>
-          <option value="1" >Car Owner</option>
+          <option value="1">Car Owner</option>
           <option value="2">Manufacturer</option>
           <option value="3">Police Officer</option>
           <option value="4" disabled>Insurance Agent</option>
@@ -30,16 +32,18 @@
         </select>
         <div class="form-group">
           <label for="exampleInputEmail1">Email Address</label>
-          <input [(ngModel)]="inYourEmail" name="emailInput" type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+          <input [(ngModel)]="inYourEmail" name="emailInput" type="email" class="form-control form-control-lg" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Email Address">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input [(ngModel)]="inYourPass" name="passInput" type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+          <input [(ngModel)]="inYourPass" name="passInput" type="password" class="form-control form-control-lg" id="exampleInputPassword1"
+            placeholder="Password">
         </div>
-        
+
         <div id="buttonRow">
-          <button id="button1"(click)="navigatePage(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Sign In</button>
-          <button id="button2" routerLink="/" class="btn btn-outline-primary" >Back</button>
+          <button id="button1" (click)="navigatePage(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Sign In</button>
+          <button id="button2" routerLink="/" class="btn btn-outline-primary">Back</button>
         </div>
       </form>
 

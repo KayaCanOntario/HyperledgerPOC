@@ -28,12 +28,13 @@
           in US Dollars.</h6>
         <div class="form-group">
           <label for="exampleInputID">User ID</label>
-          <input [(ngModel)]="userID" name="idInput" type="text" class="form-control form-control-lg" id="exampleInputID"
-            aria-describedby="idHelp" placeholder="Enter the ID of the buyer">
+          <input [(ngModel)]="userID" name="idInput" type="text" class="form-control form-control-lg" id="exampleInputID" aria-describedby="idHelp"
+            placeholder="Enter the ID of the buyer">
         </div>
         <div class="form-group">
           <label for="exampleInputAmount">Amount for the vehicle</label>
-          <input [(ngModel)]="vehicleAmount" name="amountInput" type="text" class="form-control form-control-lg" id="exampleInputAmount" placeholder="Amount">
+          <input [(ngModel)]="vehicleAmount" name="amountInput" type="text" class="form-control form-control-lg" id="exampleInputAmount"
+            placeholder="Amount">
         </div>
         <button (click)="sellVehicle()" class="btn btn-primary">Submit</button>
       </form>

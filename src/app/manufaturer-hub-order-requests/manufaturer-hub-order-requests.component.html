@@ -1,13 +1,13 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a routerLink="/manufacturer" class="navbar-brand">
-      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-    </a>
-    <div>
-      <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
-      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-    </div>
-  </nav>
+  <a routerLink="/manufacturer" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
+    <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
 
 <!-- Container for page -->
 <div class="container">
@@ -33,9 +33,11 @@
             <td>{{row.owner}}</td>
             <td>{{row.colour}}</td>
             <td>
-              <button [routerLink]="['/manufacturer/new-car']" [queryParams]="{make:row.make,model:row.model,colour:row.colour}" type="button" class="btn btn-link">Create</button>
+              <button [routerLink]="['/manufacturer/new-car']" [queryParams]="{make:row.make,model:row.model,colour:row.colour}" type="button"
+                class="btn btn-link">Create</button>
             </td>
-          </tr><!--
+          </tr>
+          <!--
           <tr>
             <th scope="row">2</th>
             <td>Honda Accord</td>

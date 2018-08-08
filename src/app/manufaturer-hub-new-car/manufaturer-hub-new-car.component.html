@@ -1,19 +1,19 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a routerLink="/manufacturer" class="navbar-brand">
-      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-    </a>
-    <div>
-      <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
-      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-    </div>
-  </nav>
+  <a routerLink="/manufacturer" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
+    <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
 
 <!-- Container for page -->
 <div class="container">
   <div class="card my-5 text-center">
     <div class="card-body">
-      
+
       <h5 class="card-title mb-2 mt-5">Register A New Vehicle</h5>
       <h6 class="card-title mb-2 mt-5" name="statusBar" *ngIf="displayMessage!='undefined'">{{displayMessage}}</h6>
 
@@ -21,24 +21,29 @@
       <form class="w-75 mx-auto text-left">
         <div class="form-group">
           <label for="exampleInputVIN1">VIN</label>
-          <input type="text" [(ngModel)]="vehicle.VIN" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number" name="trait">
+          <input type="text" [(ngModel)]="vehicle.VIN" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp"
+            placeholder="Enter vin number" name="trait">
         </div>
         <div class="form-group">
           <label for="exampleInputMake1">Make</label>
-          <input type="text" [(ngModel)]="vehicle.make" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp" placeholder="Enter the vehicle's make" name="trait2">
+          <input type="text" [(ngModel)]="vehicle.make" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp"
+            placeholder="Enter the vehicle's make" name="trait2">
         </div>
         <div class="form-group">
           <label for="exampleInputModel1">Model</label>
-          <input type="text" [(ngModel)]="vehicle.model" class="form-control form-control-lg" id="exampleInputModel1" aria-describedby="modelHelp" placeholder="Enter the vehicle's model" name="trait3">
+          <input type="text" [(ngModel)]="vehicle.model" class="form-control form-control-lg" id="exampleInputModel1" aria-describedby="modelHelp"
+            placeholder="Enter the vehicle's model" name="trait3">
         </div>
         <div class="form-group">
           <label for="exampleInputLicense1">License Plate</label>
-          <input type="text" [(ngModel)]="vehicle.plate" class="form-control form-control-lg" id="exampleInputLicense1" aria-describedby="licenseHelp" placeholder="Enter the vehicle's license plate" name="trait4">
+          <input type="text" [(ngModel)]="vehicle.plate" class="form-control form-control-lg" id="exampleInputLicense1" aria-describedby="licenseHelp"
+            placeholder="Enter the vehicle's license plate" name="trait4">
         </div>
 
         <div class="form-group">
           <label for="exampleInputColour1">Colour</label>
-          <input type="text" [(ngModel)]="vehicle.colour" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle's colour" name="trait5">
+          <input type="text" [(ngModel)]="vehicle.colour" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp"
+            placeholder="Enter the vehicle's colour" name="trait5">
         </div>
 
         <div class="form-check">
@@ -60,8 +65,8 @@
           </label>
         </div>
         <div id="buttonRow">
-          <button id="button1"class="btn btn-primary" (click)="addCar(vehicle)">Submit</button>
-          <button id="button2"routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
+          <button id="button1" class="btn btn-primary" (click)="addCar(vehicle)">Submit</button>
+          <button id="button2" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
 
         </div>
       </form>
@@ -77,6 +82,6 @@
       </div>
 
       <!-- Gross positioning temporary button-->
-     
+
+    </div>
   </div>
-</div>

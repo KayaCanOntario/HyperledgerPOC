@@ -11,45 +11,52 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Sign Up</h5>
-      <h6 class="card-title mb-2 mt-5">Already Have An Account? <a routerLink="/login">Sign In.</a></h6>
+      <h6 class="card-title mb-2 mt-5">Already Have An Account?
+        <a routerLink="/login">Sign In.</a>
+      </h6>
       <h4 class="card-title mb-2 mt-5" name="statusBar" *ngIf="displayMessage!='undefined'">{{displayMessage}}</h4>
-      
+
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
-          <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="signupTypeSelector">
-              <option disabled value="undefined">Select A Login Type</option>
-              <option value="1" >Car Owner</option>
-              <option value="2">Manufacturer</option>
-              <option value="3">Police Officer</option>
-              <option value="4" disabled>Insurance Agent</option>
-              <option value="5" disabled>Government Regulator</option>
-              <option value="6" disabled>Vehicle Standards Agency</option>
-            </select>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="inEmail" name="inYourEmail">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1" *ngIf="selector!='2'">First Name</label>
-            <label for="exampleInputName2" *ngIf="selector=='2'">Company Name</label>
-            <input type="text" class="form-control form-control-lg" id="exampleInputName1" aria-describedby="fnameHelp" placeholder="Enter name" [(ngModel)]="inFirstName" name="inYourFirstName">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputName1" *ngIf="selector!='2'">Last Name</label>
-            <input type="text" *ngIf="selector!='2'" class="form-control form-control-lg" id="exampleInputName2" aria-describedby="lnameHelp" placeholder="Enter name" [(ngModel)]="inLastName" name="inYourLastName">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control form-control-lg mb-3" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="inPassword" name="inYourPass">
-            <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password" [(ngModel)]="inReEnterPassword" name="inYourReEnter">
-          </div>
-            
-          <div id="buttonRow">
-          <button id="button1"(click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Submit</button>
-          <button id="button2" routerLink="/" class="btn btn-outline-primary" >Back</button>
-          </div>
-        </form>
+        <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="signupTypeSelector">
+          <option disabled value="undefined">Select A Login Type</option>
+          <option value="1">Car Owner</option>
+          <option value="2">Manufacturer</option>
+          <option value="3">Police Officer</option>
+          <option value="4" disabled>Insurance Agent</option>
+          <option value="5" disabled>Government Regulator</option>
+          <option value="6" disabled>Vehicle Standards Agency</option>
+        </select>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+            [(ngModel)]="inEmail" name="inYourEmail">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1" *ngIf="selector!='2'">First Name</label>
+          <label for="exampleInputName2" *ngIf="selector=='2'">Company Name</label>
+          <input type="text" class="form-control form-control-lg" id="exampleInputName1" aria-describedby="fnameHelp" placeholder="Enter name"
+            [(ngModel)]="inFirstName" name="inYourFirstName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputName1" *ngIf="selector!='2'">Last Name</label>
+          <input type="text" *ngIf="selector!='2'" class="form-control form-control-lg" id="exampleInputName2" aria-describedby="lnameHelp"
+            placeholder="Enter name" [(ngModel)]="inLastName" name="inYourLastName">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control form-control-lg mb-3" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="inPassword"
+            name="inYourPass">
+          <input type="password" class="form-control form-control-lg" id="exampleInputPassword2" placeholder="Re-enter Password" [(ngModel)]="inReEnterPassword"
+            name="inYourReEnter">
+        </div>
+
+        <div id="buttonRow">
+          <button id="button1" (click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Submit</button>
+          <button id="button2" routerLink="/" class="btn btn-outline-primary">Back</button>
+        </div>
+      </form>
 
       <div class="row justify-content-end">
         <a class="col-lg-1 col-5" href="#" style="width: 67px!important;max-width: 67px!important;">

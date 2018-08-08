@@ -1,56 +1,56 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a routerLink="/manufacturer" class="navbar-brand">
-      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-    </a>
-    <div>
-      <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
-      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-    </div>
-  </nav>
-  
-  <!-- Container for page -->
-  <div class="container">
-    <div class="card my-5">
-      <div class="card-body">
-        <h5 class="card-title my-2">View Vehicle ID#{{masterID}}</h5>
-        <hr>
-  
-        <table class="table table-hover">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Make</th>
-              <th scope="col">Model</th>
-              <th scope="col">Price</th>
-              <th scope="col">Colour</th>
-              <th scope="col">Seats</th>
-              <th scope="col">Weight</th>
-              <th scope="col">Height</th>
-              <th scope="col">Length</th>
-              <th scope="col">Width</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngIf="tableData!=undefined && tableData!=null">
-              <td>{{tableData.make}}</td>
-              <td>{{tableData.model}}</td>
-              <td>$10,400</td>
-              <td>{{tableData.colour}}</td>
-              <td>{{tableData.numSeats}}</td>
-              <td>{{tableData.weight}}</td>
-              <td>{{tableData.heigth}}</td>
-              <td>{{tableData.length}}</td>
-              <td>{{tableData.width}}</td>
-            </tr>
-          </tbody>
-        </table>
-  
-        <div class="row justify-content-end">
-          <div class="col-2 mt-4">
-            <button routerLink="/manufacturer/stock" class="btn btn-outline-info">Back To All Vehicles</button>
-          </div>
+  <a routerLink="/manufacturer" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
+    <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
+
+<!-- Container for page -->
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <h5 class="card-title my-2">View Vehicle ID#{{masterID}}</h5>
+      <hr>
+
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Price</th>
+            <th scope="col">Colour</th>
+            <th scope="col">Seats</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Height</th>
+            <th scope="col">Length</th>
+            <th scope="col">Width</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="tableData!=undefined && tableData!=null">
+            <td>{{tableData.make}}</td>
+            <td>{{tableData.model}}</td>
+            <td>$10,400</td>
+            <td>{{tableData.colour}}</td>
+            <td>{{tableData.numSeats}}</td>
+            <td>{{tableData.weight}}</td>
+            <td>{{tableData.heigth}}</td>
+            <td>{{tableData.length}}</td>
+            <td>{{tableData.width}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row justify-content-end">
+        <div class="col-2 mt-4">
+          <button routerLink="/manufacturer/stock" class="btn btn-outline-info">Back To All Vehicles</button>
         </div>
       </div>
-  
     </div>
+
   </div>
+</div>

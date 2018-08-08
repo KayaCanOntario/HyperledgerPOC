@@ -1,62 +1,62 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a routerLink="/manufacturer" class="navbar-brand">
-      <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
-    </a>
-    <div>
-      <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
-      <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
-    </div>
-  </nav>
-  
-  <!-- Container for page -->
-  <div class="container">
-    <div class="card my-5">
-      <div class="card-body">
-        <h5 class="card-title my-2">Stock</h5>
-        <hr>
-  
-        <table class="table table-hover">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">VIN</th>
-              <th scope="col">Model</th>
-              <th scope="col">License</th>
-              <th scope="col">Status</th>
-              <th scope="col">Colour</th>
-              <th scope="col">View Details</th>
-              <th scope="col">Sell Vehicle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let row of tableData">
-                <th scope="row">{{row.VIN}}</th>
-                <td>{{row.make}} {{row.model}}</td>
-                <td>{{row.plate}}</td>
-                <td>{{row.status}}</td>
-                <td>{{row.colour}}</td>
-                <td>
-                  <button [routerLink]="['/manufacturer/view-car']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
-                </td>
-                <td>
-                  <button routerLink="/manufacturer/sell-car" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link" >Sell</button>            
-                  <!-- [disabled]="row.status != 'In Stock'"         -->
-                  </td>
-            </tr>
-          
-          </tbody>
-        </table>
+  <a routerLink="/manufacturer" class="navbar-brand">
+    <img src="../../assets/car.png" width="30" height="30" class="d-inline-block align-top" alt=""> Vehicle Licensing Blockchain POC
+  </a>
+  <div>
+    <span class="mr-3">Welcome {{manuName}}! [ID {{manuID}}]</span>
+    <button routerLink="/" class="btn btn-outline-warning mr-sm-2">Sign Out</button>
+  </div>
+</nav>
 
-        <p *ngIf="tableData.length==0">
-          There Are No Vehicles In Stock
-        </p>
+<!-- Container for page -->
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <h5 class="card-title my-2">Stock</h5>
+      <hr>
 
-        <div class="row justify-content-end">
-          <div class="col-1 mt-4">
-            <button id="button1" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
-          </div>
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">VIN</th>
+            <th scope="col">Model</th>
+            <th scope="col">License</th>
+            <th scope="col">Status</th>
+            <th scope="col">Colour</th>
+            <th scope="col">View Details</th>
+            <th scope="col">Sell Vehicle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData">
+            <th scope="row">{{row.VIN}}</th>
+            <td>{{row.make}} {{row.model}}</td>
+            <td>{{row.plate}}</td>
+            <td>{{row.status}}</td>
+            <td>{{row.colour}}</td>
+            <td>
+              <button [routerLink]="['/manufacturer/view-car']" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">View</button>
+            </td>
+            <td>
+              <button routerLink="/manufacturer/sell-car" [queryParams]="{ID:row.VIN}" type="button" class="btn btn-link">Sell</button>
+              <!-- [disabled]="row.status != 'In Stock'"         -->
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <p *ngIf="tableData.length==0">
+        There Are No Vehicles In Stock
+      </p>
+
+      <div class="row justify-content-end">
+        <div class="col-1 mt-4">
+          <button id="button1" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
         </div>
       </div>
-  
     </div>
+
   </div>
+</div>
