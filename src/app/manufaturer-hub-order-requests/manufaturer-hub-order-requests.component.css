@@ -8,3 +8,9 @@ h5{
     height:50px;
     float:right;
 }
+
+p {
+    margin-left:10px;
+    font-size: 1.6rem !important;
+    text-align: left;
+}
