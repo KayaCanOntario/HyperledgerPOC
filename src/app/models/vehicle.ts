@@ -15,4 +15,5 @@ export class Vehicle {
     status: string;
     weight: number;
     width: number;
+    ownerDisplayName: string;
 }

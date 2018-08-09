@@ -32,7 +32,7 @@ export class ManufaturerHubOrderRequestsComponent implements OnInit {
           this.restService.getAllFrom("carOwner").subscribe(data => {
             data.forEach(vehic2 => {
               if (this.ownerPrefix + vehic2.ownerId == vehic.owner) {
-                vehic.owner = vehic2.firstName + " " + vehic2.lastName;
+                vehic.ownerDisplayName = vehic2.firstName + " " + vehic2.lastName;
               }
             })
           });
