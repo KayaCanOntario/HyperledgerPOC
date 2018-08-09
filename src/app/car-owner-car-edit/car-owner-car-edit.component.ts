@@ -22,6 +22,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   vinNumber: any = undefined;
   myVehicle: Vehicle = new Vehicle();
   newVehicle: Vehicle = new Vehicle();
+  theDate: Date;
   displayMessage: string = 'undefined';
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
   constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) { }
@@ -56,6 +57,7 @@ export class CarOwnerCarEditComponent implements OnInit {
 
   //edits the members of the given vehicle asset
   editCar() {
+    this.myVehicle.insurance = this.theDate.toDateString().substring(4);
     this.myVehicle.VIN = ""; // Workaround for an error.
     this.restService.editAsset("vehicle", this.myVehicle.VIN, JSON.stringify(this.myVehicle)).subscribe(
       (data) => {

@@ -29,12 +29,12 @@
         <div class="form-group">
           <label for="exampleInputID">User ID</label>
           <input [(ngModel)]="userID" name="idInput" type="text" class="form-control form-control-lg" id="exampleInputID" aria-describedby="idHelp"
-            placeholder="Enter the ID of the buyer">
+            placeholder="Enter the ID of the Buyer">
         </div>
         <div class="form-group">
-          <label for="exampleInputAmount">Amount for the vehicle</label>
+          <label for="exampleInputAmount">Price For the Vehicle</label>
           <input [(ngModel)]="vehicleAmount" name="amountInput" type="text" class="form-control form-control-lg" id="exampleInputAmount"
-            placeholder="Amount">
+            placeholder="Price">
         </div>
         <button (click)="sellVehicle()" class="btn btn-primary">Submit</button>
       </form>
