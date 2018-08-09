@@ -21,6 +21,7 @@ export class CarOwnerCarNewComponent implements OnInit {
   displayMessage: string = "undefined";
   vehicle: Vehicle = new Vehicle();
   asset: string = "vehicle";
+  theDate: Date;
   constructor(public router: Router, private restService: RestService) { }
 
   ngOnInit() {
@@ -40,7 +41,7 @@ export class CarOwnerCarNewComponent implements OnInit {
   addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
     newVehicle.owner = this.ownerPrefix + this.ownerID;
-    newVehicle.insurance = "Insured";
+    newVehicle.insurance = this.theDate.toDateString().substring(4);
     newVehicle.status = "Active";
 
     this.restService.postTo(this.asset, newVehicle).subscribe(data => {

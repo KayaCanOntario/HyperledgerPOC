@@ -29,6 +29,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { HttpClientInterceptor } from './interceptor/http-client.interceptor'; 
 import { CarOwnerOrderComponent } from './car-owner-order/car-owner-order.component';;
 import { ManufacturerHubEditCarComponent } from './manufacturer-hub-edit-car/manufacturer-hub-edit-car.component'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatButtonModule, MatDialogModule} from '@angular/material';
 
 @NgModule({
   
@@ -60,9 +62,16 @@ import { ManufacturerHubEditCarComponent } from './manufacturer-hub-edit-car/man
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [
 
