@@ -35,7 +35,7 @@
             <td>{{row.ownerDisplayName}}</td>
             <td>{{row.colour}}</td>
             <td>
-              <button [routerLink]="['/manufacturer/new-car']" [queryParams]="{make:row.make,model:row.model,colour:row.colour,VIN:row.VIN,plate:row.plate,owner:row.owner.toString().substring(39)}" type="button"
+              <button [routerLink]="['/manufacturer/new-car']" [queryParams]="{model:row.model,colour:row.colour,VIN:row.VIN,plate:row.plate,owner:row.owner.toString().substring(39)}" type="button"
                 class="btn btn-link">Create</button>
             </td>
           </tr>

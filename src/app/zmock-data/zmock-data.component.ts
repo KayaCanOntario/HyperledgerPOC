@@ -14,10 +14,10 @@ const Vehicles: Array<any> = [{
   "model": "Nova",
   "colour": "Blue",
   "insurance": "01/01/19",
-  "weight": 18,
-  "height": 2,
-  "length": 8,
-  "width": 2.2,
+  "weight": 4440,
+  "height": 54,
+  "length": 189,
+  "width": 72,
   "numSeats": 5
 },
 {
@@ -30,10 +30,10 @@ const Vehicles: Array<any> = [{
   "model": "Accord",
   "colour": "Black",
   "insurance": "01/01/19",
-  "weight": 18,
-  "height": 2,
-  "length": 8,
-  "width": 2.2,
+  "weight": 3131,
+  "height": 57,
+  "length": 192,
+  "width": 73,
   "numSeats": 5
 },
 {
@@ -46,11 +46,11 @@ const Vehicles: Array<any> = [{
   "model": "Odyssey",
   "colour": "Gray",
   "insurance": "Expired",
-  "weight": 18,
-  "height": 2,
-  "length": 8,
-  "width": 2.2,
-  "numSeats": 5
+  "weight": 4354,
+  "height": 70,
+  "length": 203,
+  "width": 68,
+  "numSeats": 8
 }]
 
 // Mock car owner data.

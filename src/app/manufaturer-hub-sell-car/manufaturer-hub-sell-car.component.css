@@ -2,3 +2,17 @@ h5{
     font-size: 2.5rem !important;
     text-align: center !important;
 }
+
+#button1{
+    width:200px;
+    height:50px;
+    margin-right: 10px;
+}
+#button2{
+    width:200px;
+    height:50px;
+}
+#buttonRow{
+    text-align:center;
+    margin-top:20px;
+}

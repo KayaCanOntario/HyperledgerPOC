@@ -28,14 +28,15 @@ export class ManufaturerHubNewCarComponent implements OnInit {
         if (person1.email == window.localStorage[0]) {
           this.manuID = person1.manId;
           this.manuName = person1.name;
+          this.vehicle.make = this.manuName;
         }
       })
     });
+    
     this.routerLink.queryParams.subscribe(params => {
       if (params["VIN"]) {
         this.flag = true;
       }
-      this.vehicle.make = params["make"];
       this.vehicle.model = params["model"];
       this.vehicle.colour = params["colour"];
       this.vehicle.plate = params["plate"];
@@ -46,6 +47,61 @@ export class ManufaturerHubNewCarComponent implements OnInit {
 
   addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
+    switch(newVehicle.model)
+    {
+      case "Odyssey":
+        newVehicle.numSeats = 8;
+        newVehicle.length = 203;
+        newVehicle.width = 68;
+        newVehicle.height = 70;
+        newVehicle.weight = 4354;
+        break;
+      case "Accord":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 192;
+        newVehicle.width = 73;
+        newVehicle.height = 57;
+        newVehicle.weight = 3131;
+        break;
+      case "S":
+      case "Model S":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 196;
+        newVehicle.width = 77;
+        newVehicle.height = 57;
+        newVehicle.weight = 4647;
+        break;
+      case "X":
+      case "Model X":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 198;
+        newVehicle.width = 82;
+        newVehicle.height = 66;
+        newVehicle.weight = 4980;
+        break;
+      case "3":
+      case "Model S":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 185;
+        newVehicle.width = 73;
+        newVehicle.height = 56;
+        newVehicle.weight = 4647;
+        break;
+      case "Nova":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 189;
+        newVehicle.width = 72;
+        newVehicle.height = 54;
+        newVehicle.weight = 4440;
+        break;
+      case "Trailblazer":
+        newVehicle.numSeats = 8;
+        newVehicle.length = 180;
+        newVehicle.width = 71;
+        newVehicle.height = 53;
+        newVehicle.weight = 4632;
+        break;
+    }
     if (this.flag) {
       newVehicle.status = "Active";
       newVehicle.insurance = "Not Insured";

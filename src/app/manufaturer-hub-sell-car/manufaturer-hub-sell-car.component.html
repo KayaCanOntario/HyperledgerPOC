@@ -14,7 +14,7 @@
   <div class="card my-5">
     <div class="card-body">
       <h5 class="card-title my-2">Sell Vehicle </h5>
-      <h6 class="my-2" style="text-align: center">ID# {{vehicleVIN}}</h6>
+      <h6 class="my-2" style="text-align: center">VIN: {{vehicleVIN}}</h6>
       <hr>
 
       <div *ngIf="displayMessage!='undefined'" class="alert alert-warning w-75 mx-auto" role="alert">
@@ -36,14 +36,13 @@
           <input [(ngModel)]="vehicleAmount" name="amountInput" type="text" class="form-control form-control-lg" id="exampleInputAmount"
             placeholder="Price">
         </div>
-        <button (click)="sellVehicle()" class="btn btn-primary">Submit</button>
+        <div id="buttonRow">
+          <button id="button1" (click)="sellVehicle()" class="btn btn-primary">Submit</button>
+          <button id="button2" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
+        </div>
       </form>
 
-      <div class="row justify-content-end">
-        <div class="col-1 mt-4">
-          <button routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
-        </div>
-      </div>
+      
     </div>
 
   </div>

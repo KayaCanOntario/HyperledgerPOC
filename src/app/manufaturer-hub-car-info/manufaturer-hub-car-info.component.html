@@ -13,7 +13,7 @@
 <div class="container">
   <div class="card my-5">
     <div class="card-body">
-      <h5 class="card-title my-2">View Vehicle ID#{{masterID}}</h5>
+      <h5 class="card-title my-2">{{tableData.make}} {{tableData.model}} ID:{{masterID}}</h5>
       <hr>
 
       <table class="table table-hover">
@@ -37,10 +37,10 @@
             <td>$10,400</td>
             <td>{{tableData.colour}}</td>
             <td>{{tableData.numSeats}}</td>
-            <td>{{tableData.weight}}</td>
-            <td>{{tableData.heigth}}</td>
-            <td>{{tableData.length}}</td>
-            <td>{{tableData.width}}</td>
+            <td>{{tableData.weight}} <span *ngIf="tableData.weight">lbs</span></td>
+            <td>{{tableData.height}} <span *ngIf="tableData.height">in</span></td>
+            <td>{{tableData.length}} <span *ngIf="tableData.length">in</span></td>
+            <td>{{tableData.width}} <span *ngIf="tableData.width">in</span></td>
           </tr>
         </tbody>
       </table>
