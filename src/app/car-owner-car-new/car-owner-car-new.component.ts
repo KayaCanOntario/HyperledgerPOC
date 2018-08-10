@@ -40,6 +40,82 @@ export class CarOwnerCarNewComponent implements OnInit {
   //add new vehicle with the user entered values
   addCar(newVehicle: Vehicle) {
     this.displayMessage = "Processing...";
+    switch(newVehicle.model)
+    {
+      case "Odyssey":
+        newVehicle.numSeats = 8;
+        newVehicle.length = 203;
+        newVehicle.width = 68;
+        newVehicle.height = 70;
+        newVehicle.weight = 4354;
+        break;
+      case "Accord":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 192;
+        newVehicle.width = 73;
+        newVehicle.height = 57;
+        newVehicle.weight = 3131;
+        break;
+      case "S":
+      case "Model S":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 196;
+        newVehicle.width = 77;
+        newVehicle.height = 57;
+        newVehicle.weight = 4647;
+        break;
+      case "X":
+      case "Model X":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 198;
+        newVehicle.width = 82;
+        newVehicle.height = 66;
+        newVehicle.weight = 4980;
+        break;
+      case "3":
+      case "Model S":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 185;
+        newVehicle.width = 73;
+        newVehicle.height = 56;
+        newVehicle.weight = 4647;
+        break;
+      case "Nova":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 189;
+        newVehicle.width = 72;
+        newVehicle.height = 54;
+        newVehicle.weight = 4440;
+        break;
+      case "Trailblazer":
+        newVehicle.numSeats = 8;
+        newVehicle.length = 180;
+        newVehicle.width = 71;
+        newVehicle.height = 53;
+        newVehicle.weight = 4632;
+        break;
+      case "Escape":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 178;
+        newVehicle.width = 75;
+        newVehicle.height = 66;
+        newVehicle.weight = 3560;
+        break;
+      case "Lancer":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 179;
+        newVehicle.width = 69;
+        newVehicle.height = 59;
+        newVehicle.weight = 3461;
+        break;
+      default:
+        newVehicle.numSeats = 5;
+        newVehicle.length = 180;
+        newVehicle.width = 70;
+        newVehicle.height = 60;
+        newVehicle.weight = 4000;
+        break;
+    }
     newVehicle.owner = this.ownerPrefix + this.ownerID;
     newVehicle.insurance = this.theDate.toDateString().substring(4);
     newVehicle.status = "Active";

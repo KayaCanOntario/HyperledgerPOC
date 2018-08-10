@@ -101,6 +101,27 @@ export class ManufaturerHubNewCarComponent implements OnInit {
         newVehicle.height = 53;
         newVehicle.weight = 4632;
         break;
+      case "Escape":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 178;
+        newVehicle.width = 75;
+        newVehicle.height = 66;
+        newVehicle.weight = 3560;
+        break;
+      case "Lancer":
+        newVehicle.numSeats = 5;
+        newVehicle.length = 179;
+        newVehicle.width = 69;
+        newVehicle.height = 59;
+        newVehicle.weight = 3461;
+        break;
+      default:
+        newVehicle.numSeats = 5;
+        newVehicle.length = 180;
+        newVehicle.width = 70;
+        newVehicle.height = 60;
+        newVehicle.weight = 4000;
+        break;
     }
     if (this.flag) {
       newVehicle.status = "Active";
