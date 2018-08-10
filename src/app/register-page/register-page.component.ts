@@ -4,6 +4,7 @@ import { RestService } from './../rest.service';
 import { Router } from '../../../node_modules/@angular/router';
 import { CarOwner } from '../models/car-owner';
 import { PoliceOfficer } from '../models/police-officer';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class RegisterPageComponent implements OnInit {
   status: string;
   selector: string = "undefined";
   displayMessage: string = "undefined";
-  constructor(private restService: RestService, public router: Router) { }
+  constructor(private restService: RestService, public router: Router, private location: Location) { }
 
   ngOnInit() {
   }
@@ -74,6 +75,10 @@ export class RegisterPageComponent implements OnInit {
         this.displayMessage = "Password fields must match";
       }
     
+  }
+
+  navigateBack(){
+    this.location.back();
   }
 
 }

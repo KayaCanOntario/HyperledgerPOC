@@ -23,13 +23,13 @@
             <th scope="col">Model</th>
             <th scope="col">License</th>
             <th scope="col">Colour</th>
-            <th scope="col">Insurance</th>
             <th scope="col">Insr. Expiry</th>
             <th scope="col">Seats</th>
             <th scope="col">Weight</th>
             <th scope="col">Height</th>
             <th scope="col">Length</th>
             <th scope="col">Width</th>
+            <th scope="col">Edit</th>
 
           </tr>
         </thead>
@@ -39,13 +39,13 @@
             <td>{{tableData.model}}</td>
             <td>{{tableData.plate}}</td>
             <td>{{tableData.colour}}</td>
-            <td>534573</td>
             <td>{{tableData.insurance}}</td>
             <td>{{tableData.numSeats}}</td>
             <td>{{tableData.weight}}</td>
             <td>{{tableData.height}}</td>
             <td>{{tableData.length}}</td>
             <td>{{tableData.width}}</td>
+            <td><button [routerLink]="['/car-owner/car-edit']" [queryParams]="{ID:vehicleVIN}" type="button" class="btn btn-link">Edit</button></td>
           </tr>
         </tbody>
       </table>

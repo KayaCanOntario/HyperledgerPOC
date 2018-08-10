@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
 import { Vehicle } from './../models/vehicle';
 import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-manufaturer-hub-new-car',
@@ -19,7 +20,7 @@ export class ManufaturerHubNewCarComponent implements OnInit {
   defaultColour: string = undefined;
   displayMessage: string = "undefined";
   flag: boolean = false;
-  constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router) { }
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, public router: Router, private location: Location) { }
 
   ngOnInit() {
     this.restService.getAllFrom("manufacturer").subscribe(data => {
@@ -89,6 +90,10 @@ export class ManufaturerHubNewCarComponent implements OnInit {
         }
       });
     }
+  }
+
+  navigateBack(){
+    this.location.back();
   }
 
 }

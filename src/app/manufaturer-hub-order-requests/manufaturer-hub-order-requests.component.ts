@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-manufaturer-hub-order-requests',
@@ -11,7 +12,7 @@ export class ManufaturerHubOrderRequestsComponent implements OnInit {
   manuName: string;
   tableData = [];
   ownerPrefix = "resource:org.example.scottpoc.carOwner#";
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService, private location: Location) { }
 
   ngOnInit() {
 
@@ -41,6 +42,10 @@ export class ManufaturerHubOrderRequestsComponent implements OnInit {
       })
     });
 
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
 }

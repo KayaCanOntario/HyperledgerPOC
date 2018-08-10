@@ -21,6 +21,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Model</th>
+            <th scope="col">VIN</th>
             <th scope="col">Client</th>
             <th scope="col">Colour</th>
             <th scope="col">Create Request</th>
@@ -30,6 +31,7 @@
           <tr *ngFor="let row of tableData">
             <th scope="row">1</th>
             <td>{{row.make}} {{row.model}}</td>
+            <td>{{row.VIN}}</td>
             <td>{{row.ownerDisplayName}}</td>
             <td>{{row.colour}}</td>
             <td>
@@ -67,7 +69,7 @@
 
       <div class="row justify-content-end">
         <div class="col-1 mt-4">
-          <button id="button1" routerLink="/manufacturer" class="btn btn-outline-primary">Back</button>
+          <button id="button1" (click)="navigateBack()" class="btn btn-outline-primary">Back</button>
         </div>
       </div>
     </div>

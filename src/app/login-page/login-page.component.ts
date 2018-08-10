@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 import { RestService } from './../rest.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   // Property that controls whether an invalid Login error is shown or not.
   showError: boolean = false;
   urlType: string;
-  constructor(public router: Router, private restService: RestService) { }
+  constructor(public router: Router, private restService: RestService, private location: Location) { }
 
   ngOnInit() {
 
@@ -66,4 +66,9 @@ export class LoginPageComponent implements OnInit {
       })
     });
   }
+
+  navigateBack(){
+    this.location.back();
+  }
+
 }

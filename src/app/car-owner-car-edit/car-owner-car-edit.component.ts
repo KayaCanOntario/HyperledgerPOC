@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from './../rest.service';
 import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 import { Vehicle } from '../models/vehicle';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-car-owner-car-edit',
@@ -25,7 +26,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   theDate: Date;
   displayMessage: string = 'undefined';
   ownerPrefix: string = "resource:org.example.scottpoc.carOwner#";
-  constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) { }
+  constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router, private location: Location) { }
 
   ngOnInit() {
     //use the email from local storage to fetch current user's credentials
@@ -68,6 +69,10 @@ export class CarOwnerCarEditComponent implements OnInit {
         this.displayMessage = "Something went wrong, please try again."
       }
     )
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
 }

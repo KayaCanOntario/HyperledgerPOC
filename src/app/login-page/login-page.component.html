@@ -43,7 +43,7 @@
 
         <div id="buttonRow">
           <button id="button1" (click)="navigatePage(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Sign In</button>
-          <button id="button2" routerLink="/" class="btn btn-outline-primary">Back</button>
+          <button id="button2" (click)="navigateBack()" class="btn btn-outline-primary">Back</button>
         </div>
       </form>
 

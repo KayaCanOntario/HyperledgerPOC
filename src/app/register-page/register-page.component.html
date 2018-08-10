@@ -54,7 +54,7 @@
 
         <div id="buttonRow">
           <button id="button1" (click)="createUser(selector)" [disabled]="selector=='undefined'" class="btn btn-primary">Create Account</button>
-          <button id="button2" routerLink="/" class="btn btn-outline-primary">Back</button>
+          <button id="button2" (click)="navigateBack()" class="btn btn-outline-primary">Back</button>
         </div>
       </form>
 
