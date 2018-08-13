@@ -21,7 +21,7 @@
           <tr>
             <th scope="col">Make</th>
             <th scope="col">Model</th>
-            <th scope="col">Price</th>
+            <th scope="col">Retail Price</th>
             <th scope="col">Colour</th>
             <th scope="col">Seats</th>
             <th scope="col">Weight</th>
@@ -34,7 +34,20 @@
           <tr *ngIf="tableData!=undefined && tableData!=null">
             <td>{{tableData.make}}</td>
             <td>{{tableData.model}}</td>
-            <td>$10,400</td>
+            <td >
+              <div [ngSwitch]="tableData.model">
+                <div *ngSwitchCase="'Accord'">$23,570</div>
+                <div *ngSwitchCase="'Odyssey'">$30,090</div>
+                <div *ngSwitchCase="'S'">$74,500</div>
+                <div *ngSwitchCase="'X'">$79,500</div>
+                <div *ngSwitchCase="'3'">$49,000</div>
+                <div *ngSwitchCase="'Nova'">$58,474</div>
+                <div *ngSwitchCase="'Trailblazer'">$16,587</div>
+                <div *ngSwitchCase="'Escape'">$24,105</div>
+                <div *ngSwitchCase="'Lancer'">$17,795</div>
+                <div *ngSwitchDefault>$20,000</div>
+              </div>
+            </td>
             <td>{{tableData.colour}}</td>
             <td>{{tableData.numSeats}}</td>
             <td>{{tableData.weight}} <span *ngIf="tableData.weight">lbs</span></td>
