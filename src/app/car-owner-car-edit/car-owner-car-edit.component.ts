@@ -29,6 +29,7 @@ export class CarOwnerCarEditComponent implements OnInit {
   constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router, private location: Location) { }
 
   ngOnInit() {
+    
     //use the email from local storage to fetch current user's credentials
     this.restService.getAllFrom("carOwner").subscribe(data => {
       data.forEach(person => {
@@ -50,6 +51,7 @@ export class CarOwnerCarEditComponent implements OnInit {
         data.forEach(vehicle1 => {
           if (vehicle1.VIN == this.vinNumber) {
             this.myVehicle = vehicle1;
+            this.theDate = new Date(vehicle1.insurance);
           }
         })
       });
