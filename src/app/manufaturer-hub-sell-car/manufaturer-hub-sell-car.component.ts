@@ -62,6 +62,8 @@ export class ManufaturerHubSellCarComponent implements OnInit {
     });
   }
 
+  //make appropriate changes to vehicle that need to be made for the sale of a vehicle
+  //and edit the api to reflect this change
   changeVehicleProperties() {
     this.restService.getAllFrom("vehicle").subscribe(data => {
       data.forEach(vehicle => {
