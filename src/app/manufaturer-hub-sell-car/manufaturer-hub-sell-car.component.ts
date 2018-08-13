@@ -14,7 +14,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
   userID: string;
   vehicleAmount: string;
   displayMessage: string = "undefined";
-
+  
 
 
 
