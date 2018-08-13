@@ -60,6 +60,7 @@ export class CarOwnerCarEditComponent implements OnInit {
 
   //edits the members of the given vehicle asset
   editCar() {
+    this.displayMessage = "Processing...";
     this.myVehicle.insurance = this.theDate.toDateString().substring(4);
     this.myVehicle.VIN = ""; // Workaround for an error.
     this.restService.editAsset("vehicle", this.vinNumber, JSON.stringify(this.myVehicle)).subscribe(

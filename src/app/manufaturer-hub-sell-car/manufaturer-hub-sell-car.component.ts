@@ -45,7 +45,7 @@ export class ManufaturerHubSellCarComponent implements OnInit {
   }
 
   sellVehicle() {
-    this.displayMessage = "undefined";
+    this.displayMessage = "Processing...";
 
     // Checking to see if a user exists with the given 'userID'.
     this.restService.getAllFrom("carOwner").subscribe(data => {

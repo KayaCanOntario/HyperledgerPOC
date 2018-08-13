@@ -14,7 +14,7 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Register a New Vehicle</h5>
-      <h6 class="card-title mb-2 mt-5" *ngIf="displayMessage!='undefined'" name="statusBar">{{displayMessage}}</h6>
+      <div class="alert alert-warning w-75 mx-auto" role="alert" *ngIf="displayMessage!='undefined'" name="statusBar">{{displayMessage}}</div>
 
       <!-- Form -->
       <form class="w-75 mx-auto text-left">

@@ -17,12 +17,11 @@ export class PoliceHubViewDetailsComponent implements OnInit {
   constructor(private restService: RestService, private routerLink: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.restService.getAllFrom("policeOfficer").subscribe(data=>{
-      data.forEach(person1 =>{
-        if(person1.email == window.localStorage[0])
-        {
+    this.restService.getAllFrom("policeOfficer").subscribe(data => {
+      data.forEach(person1 => {
+        if (person1.email == window.localStorage[0]) {
           this.badgeID = person1.badgeNumber;
-          this.officerName = "Officer "+person1.firstName + " " + person1.lastName;
+          this.officerName = "Officer " + person1.firstName + " " + person1.lastName;
         }
       })
     });
@@ -44,8 +43,7 @@ export class PoliceHubViewDetailsComponent implements OnInit {
       });
       this.restService.getAllFrom("vehicle").subscribe(data => {
         data.forEach(vehicle1 => {
-          if(vehicle1.VIN == myID)
-          {
+          if (vehicle1.VIN == myID) {
             this.tableData = vehicle1;
 
           }
