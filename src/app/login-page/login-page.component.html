@@ -15,8 +15,8 @@
         <a routerLink="/signup">Create One.</a>
       </h6>
 
-      <div *ngIf="showError" class="alert alert-danger w-75 mx-auto" role="alert">
-        Invalid Login information. Please try again.
+      <div *ngIf="displayMessage!='undefined'" class="alert alert-warning w-75 mx-auto" role="alert">
+        {{displayMessage}}
       </div>
 
       <!-- Form -->

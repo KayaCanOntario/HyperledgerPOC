@@ -15,6 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   // Property that controls whether an invalid Login error is shown or not.
   showError: boolean = false;
+  displayMessage: string = 'undefined';
   urlType: string;
   constructor(public router: Router, private restService: RestService, private location: Location) { }
 
@@ -24,7 +25,17 @@ export class LoginPageComponent implements OnInit {
 
   //navigate to the appropriate page depending on the option slected
   navigatePage(mySelector: string) {
+    
+    // Validating input fields before proceeding.
+    if (this.inYourEmail == null || this.inYourEmail == undefined) {
+      this.displayMessage = "Email field is required.";
+      return;
+    } else if (this.inYourPass == null || this.inYourPass == undefined) {
+      this.displayMessage = "Password field is required.";
+      return;
+    }
 
+    // Checking the user type.
     switch (mySelector) {
       case "1":
         this.urlType = "carOwner";
@@ -37,16 +48,19 @@ export class LoginPageComponent implements OnInit {
         break;
     }
 
+    // Validating username and password.
+    this.displayMessage = "Loading...";
     this.restService.getAllFrom(this.urlType).subscribe(data => {
       let userFound = false;
 
       data.forEach(person1 => {
+        console.log(person1);
         if (person1.email == this.inYourEmail && person1.pass == this.inYourPass) {
           userFound = true;
         }
 
         if (!userFound) {
-          this.showError = true;
+          this.displayMessage = "No such user found on the network. Please try again.";
           return;
         }
 
@@ -65,9 +79,12 @@ export class LoginPageComponent implements OnInit {
         }
       })
     });
+
+
+
   }
 
-  navigateBack(){
+  navigateBack() {
     this.location.back();
   }
 
