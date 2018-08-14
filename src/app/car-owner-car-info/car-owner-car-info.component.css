@@ -7,3 +7,7 @@ h5{
     height:50px;
     float:right;
 }
+
+.btn-link {
+    padding: 0;
+}
