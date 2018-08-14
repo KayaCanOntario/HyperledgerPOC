@@ -14,3 +14,7 @@ p {
     font-size: 1.6rem !important;
     text-align: left;
 }
+
+.btn-link {
+    padding: 0;
+}
