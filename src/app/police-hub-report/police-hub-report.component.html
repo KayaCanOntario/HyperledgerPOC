@@ -14,7 +14,9 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Report a Vehicle Suspicious or Stolen</h5>
-
+      <div *ngIf="displayMessage!='undefined'" class="alert alert-warning w-75 mx-auto" role="alert" style="text-align:center!important;">
+          {{displayMessage}}
+        </div>
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
         <select class="form-control form-control-lg mb-3 mt-4" [(ngModel)]="selector" name="reportTypeSelector">
@@ -26,7 +28,7 @@
           <label for="exampleInputVIN1">VIN</label>
           <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number"
             [(ngModel)]="inputVIN" name="invin">
-        </div>
+        </div><!--
         <div class="form-group">
           <label for="exampleInputMake1">Make</label>
           <input type="text" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp" placeholder="Enter the vehicle's make">
@@ -43,7 +45,7 @@
         <div class="form-group">
           <label for="exampleInputColour1">Colour</label>
           <input type="text" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle's colour">
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="exampleInputReason1">Reason for Reporting</label>
           <textarea type="text" class="form-control form-control-lg" id="exampleInputReason1" aria-describedby="reasonHelp" placeholder="Enter the reason for reporting"></textarea>
@@ -55,7 +57,7 @@
         </div>
 
         <div id="buttonRow">
-          <button id="button1" (click)="fileReport(selector, inputVIN)" class="btn btn-primary">Submit</button>
+          <button id="button1" (click)="fileReport(selector, inputVIN)" class="btn btn-primary" [disabled]="!inputVIN || selector=='undefined'">Submit</button>
           <button id="button2" routerLink="/police" class="btn btn-outline-primary">Back</button>
         </div>
 

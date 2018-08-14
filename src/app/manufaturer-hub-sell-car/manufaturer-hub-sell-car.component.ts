@@ -71,7 +71,9 @@ export class ManufaturerHubSellCarComponent implements OnInit {
           vehicle.owner = "resource:org.example.scottpoc.carOwner#" + this.userID; // Vehicle owner is changed.
           vehicle.status = "Active"; // Vehicle status is changed.
           vehicle.insurance = "Not Insured";
-          this.restService.editAsset("vehicle", vehicle.VIN, JSON.stringify(vehicle)).subscribe(
+          let storeVIN = vehicle.VIN;
+          vehicle.VIN = "";
+          this.restService.editAsset("vehicle", storeVIN, JSON.stringify(vehicle)).subscribe(
             (data) => {
               this.displayMessage = "Success, vehicle has been sold to the user.";
             },

@@ -14,6 +14,7 @@ export class PoliceHubImpoundComponent implements OnInit {
   status: string;
   badgeID: string;
   officerName: string;
+  displayMessage: string = "undefined";
   constructor(private restService: RestService , public router: Router) { }
 
   ngOnInit() {
@@ -30,11 +31,14 @@ export class PoliceHubImpoundComponent implements OnInit {
 
   impoundCar(thisVIN: string)
   {
+    this.displayMessage="Processing...";
     this.transaction.$class = "org.example.scottpoc.impoundCar";
     this.transaction.asset = "resource:org.example.scottpoc.vehicle#" + thisVIN;
     this.restService.postTo("impoundCar", this.transaction).subscribe(data=>{
       this.status=data;
       this.router.navigate(['/police']);
+    }, error=>{
+      this.displayMessage = "Vehicle with that VIN does not exist";
     });
   }
 
