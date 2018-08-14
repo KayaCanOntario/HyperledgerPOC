@@ -58,7 +58,7 @@
         </div>
 
         <div id="buttonRow">
-          <button id="button1" (click)="editCar(newVehicle)" class="btn btn-primary">Request Changes</button>
+          <button id="button1" (click)="editCar(newVehicle)" class="btn btn-primary" [disabled]="!myVehicle.make || !myVehicle.model || !myVehicle.plate || !myVehicle.colour">Request Changes</button>
           <button id="button2" (click)="navigateBack()" class="btn btn-outline-primary">Back</button>
         </div>
 

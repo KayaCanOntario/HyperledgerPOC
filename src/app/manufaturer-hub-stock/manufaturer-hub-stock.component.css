@@ -7,6 +7,17 @@ h5{
     width:175px!important;
     height:50px;
     float:right;
+    margin-right:10px;
+}
+
+#button2{
+    width:175px;
+    height:50px;
+    margin-right:10px;
+}
+#buttonRow{
+    text-align:center;
+    margin-top:20px;
 }
 
 p {

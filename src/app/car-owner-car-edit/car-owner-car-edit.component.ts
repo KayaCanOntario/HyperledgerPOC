@@ -61,17 +61,36 @@ export class CarOwnerCarEditComponent implements OnInit {
   //edits the members of the given vehicle asset
   editCar() {
     this.displayMessage = "Processing...";
-    this.myVehicle.insurance = this.theDate.toDateString().substring(4);
-    this.myVehicle.VIN = ""; // Workaround for an error.
-    this.restService.editAsset("vehicle", this.vinNumber, JSON.stringify(this.myVehicle)).subscribe(
-      (data) => {
-        this.displayMessage = "Success, vehicle information has been updated.";
-      },
-      (error) => {
-        console.log(error);
-        this.displayMessage = "Something went wrong, please try again."
+    if(this.theDate==null||this.theDate==undefined)
+    {
+      this.displayMessage = "Insurance Expiry Required";
+    }
+    else {
+      this.myVehicle.insurance = this.theDate.toDateString().substring(4);
+      this.myVehicle.VIN = ""; // Workaround for an error.
+      this.restService.editAsset("vehicle", this.vinNumber, JSON.stringify(this.myVehicle)).subscribe(
+        (data) => {
+          this.displayMessage = "Success, vehicle information has been updated.";
+        },
+        (error) => {
+          if (this.myVehicle.VIN == null || this.myVehicle.VIN == undefined) {
+            this.displayMessage = "VIN field required";
+          }
+          else if (this.myVehicle.make == null || this.myVehicle.make == undefined) {
+            this.displayMessage = "Make field required";
+          }
+          else if (this.myVehicle.model == null || this.myVehicle.model == undefined) {
+            this.displayMessage = "Model field required";
+          }
+          else if (this.myVehicle.plate == null || this.myVehicle.plate == undefined) {
+            this.displayMessage = "License Plate field required";
+          }
+          else if (this.myVehicle.colour == null || this.myVehicle.colour == undefined) {
+            this.displayMessage = "Colour field required";
+          }
+        })
       }
-    )
+    
   }
 
   navigateBack() {

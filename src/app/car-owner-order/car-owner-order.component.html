@@ -47,7 +47,7 @@
         </div>
 
         <div id="buttonRow">
-          <button id="button1" (click)="addCar(vehicle)" class="btn btn-primary">Submit</button>
+          <button id="button1" (click)="addCar(vehicle)" class="btn btn-primary" [disabled]="!vehicle.make || !vehicle.model || !vehicle.VIN || !vehicle.plate || !vehicle.colour">Submit</button>
           <button id="button2" routerLink="/car-owner" class="btn btn-outline-primary">Back</button>
         </div>
       </form>

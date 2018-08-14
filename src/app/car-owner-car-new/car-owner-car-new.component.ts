@@ -117,33 +117,38 @@ export class CarOwnerCarNewComponent implements OnInit {
         break;
     }
     newVehicle.owner = this.ownerPrefix + this.ownerID;
-    newVehicle.insurance = this.theDate.toDateString().substring(4);
-    newVehicle.status = "Active";
+    if(this.theDate==undefined||this.theDate==null){
+      this.displayMessage = "Insurance expiry required";
+    }
+    else {
+      newVehicle.insurance = this.theDate.toDateString().substring(4);
+      newVehicle.status = "Active";
 
-    this.restService.postTo(this.asset, newVehicle).subscribe(data => {
-      this.status = data;
-      this.router.navigate(['car-owner']);
-    }, error => {
-      if (newVehicle.VIN == null || newVehicle.VIN == undefined) {
-        this.displayMessage = "VIN field required";
-      }
-      else if (newVehicle.make == null || newVehicle.make == undefined) {
-        this.displayMessage = "Make field required";
-      }
-      else if (newVehicle.model == null || newVehicle.model == undefined) {
-        this.displayMessage = "Model field required";
-      }
-      else if (newVehicle.plate == null || newVehicle.plate == undefined) {
-        this.displayMessage = "License Plate field required";
-      }
-      else if (newVehicle.colour == null || newVehicle.colour == undefined) {
-        this.displayMessage = "Colour field required";
-      }
-      //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
-      else {
-        this.displayMessage = "Vehicle with that VIN already exists";
-      }
-    });
+      this.restService.postTo(this.asset, newVehicle).subscribe(data => {
+        this.status = data;
+        this.router.navigate(['car-owner']);
+      }, error => {
+        if (newVehicle.VIN == null || newVehicle.VIN == undefined) {
+          this.displayMessage = "VIN field required";
+        }
+        else if (newVehicle.make == null || newVehicle.make == undefined) {
+          this.displayMessage = "Make field required";
+        }
+        else if (newVehicle.model == null || newVehicle.model == undefined) {
+          this.displayMessage = "Model field required";
+        }
+        else if (newVehicle.plate == null || newVehicle.plate == undefined) {
+          this.displayMessage = "License Plate field required";
+        }
+        else if (newVehicle.colour == null || newVehicle.colour == undefined) {
+          this.displayMessage = "Colour field required";
+        }
+        //only possible error if vehicle object is sufficiently populated, is a duplicate VIN
+        else {
+          this.displayMessage = "Vehicle with that VIN already exists";
+        }
+      });
+    }
 
   }
 }

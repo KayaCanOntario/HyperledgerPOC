@@ -58,7 +58,7 @@
           <input type="text" class="form-control form-control-lg" id="exampleInputInsurance1" aria-describedby="insuranceHelp" placeholder="Enter the vehicle's insurance number">
         </div>-->
         <div id="buttonRow">
-          <button id="button1" (click)="addCar(vehicle)" class="btn btn-primary">Submit</button>
+          <button id="button1" (click)="addCar(vehicle)" class="btn btn-primary" [disabled]="!vehicle.VIN || !vehicle.make || !vehicle.model || !vehicle.plate || !vehicle.colour || !theDate">Submit</button>
           <button id="button2" routerLink="/car-owner" class="btn btn-outline-primary">Back</button>
         </div>
       </form>

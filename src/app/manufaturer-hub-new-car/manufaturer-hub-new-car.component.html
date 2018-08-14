@@ -65,7 +65,7 @@
           </label>
         </div>-->
         <div id="buttonRow">
-          <button id="button1" class="btn btn-primary" (click)="addCar(vehicle)">Submit</button>
+          <button id="button1" class="btn btn-primary" (click)="addCar(vehicle)" [disabled]="!vehicle.VIN || !vehicle.make || !vehicle.model || !vehicle.plate || !vehicle.colour">Submit</button>
           <button id="button2" (click)="navigateBack()" class="btn btn-outline-primary">Back</button>
 
         </div>
