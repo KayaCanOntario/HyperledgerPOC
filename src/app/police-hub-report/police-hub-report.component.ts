@@ -17,6 +17,7 @@ export class PoliceHubReportComponent implements OnInit {
   status: string;
   transaction: AssetTX = new AssetTX();
   txType: string;
+  displayMessage: string="undefined";
   constructor(private restService: RestService, public router: Router) { }
 
   ngOnInit() {
@@ -33,6 +34,7 @@ export class PoliceHubReportComponent implements OnInit {
 
   fileReport(mySelector: string, myVIN: string)
   {
+    this.displayMessage = "Processing...";
     switch(mySelector)
     {
       case"1":
@@ -49,6 +51,8 @@ export class PoliceHubReportComponent implements OnInit {
     this.restService.postTo(this.txType, this.transaction).subscribe(data=>{
       this.status=data;
       this.router.navigate(['/police']);
+    }, error=>{
+      this.displayMessage = "Vehicle with that VIN does not exist";
     });
   }
 

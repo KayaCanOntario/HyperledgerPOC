@@ -14,12 +14,15 @@
   <div class="card my-5 text-center">
     <div class="card-body">
       <h5 class="card-title mb-2 mt-5">Report Impounded Vehicle</h5>
+      <div *ngIf="displayMessage!='undefined'" class="alert alert-warning w-75 mx-auto" role="alert" style="text-align:center!important;">
+          {{displayMessage}}
+        </div>
       <!-- Form -->
       <form class="w-75 mx-auto text-left">
           <div class="form-group">
             <label for="exampleInputVIN1" >VIN</label>
             <input type="text" class="form-control form-control-lg" id="exampleInputVIN1" aria-describedby="vinHelp" placeholder="Enter vin number" [(ngModel)]="vinToBeImpounded" name="vtbi">
-          </div>
+          </div><!--
           <div class="form-group">
             <label for="exampleInputMake1">Make</label>
             <input type="text" class="form-control form-control-lg" id="exampleInputMake1" aria-describedby="makeHelp" placeholder="Enter the vehicle's make">
@@ -36,7 +39,7 @@
           <div class="form-group">
             <label for="exampleInputColour1">Colour</label>
             <input type="text" class="form-control form-control-lg" id="exampleInputColour1" aria-describedby="colorHelp" placeholder="Enter the vehicle's colour">
-          </div>
+          </div>-->
           <div class="form-group">
               <label for="exampleInputReason1">Reason for Impounding</label>
               <textarea type="text" class="form-control form-control-lg" id="exampleInputReason1" aria-describedby="reasonHelp" placeholder="Enter the reason for impounding"></textarea>
@@ -50,7 +53,7 @@
         </form>
 
         <div id ="buttonRow">
-          <button id="button1" (click)="impoundCar(vinToBeImpounded)" class="btn btn-primary">Submit</button>
+          <button id="button1" (click)="impoundCar(vinToBeImpounded)" class="btn btn-primary" [disabled]="!vinToBeImpounded">Submit</button>
           <button id="button2" routerLink="/police" class="btn btn-outline-primary" >Back</button>
         </div>
 
