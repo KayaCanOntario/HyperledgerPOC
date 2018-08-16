@@ -126,7 +126,9 @@ export class ManufaturerHubNewCarComponent implements OnInit {
     if (this.flag) {
       newVehicle.status = "Active";
       newVehicle.insurance = "Not Insured";
-      this.restService.editAsset("vehicle", newVehicle.VIN, JSON.stringify(newVehicle)).subscribe(
+      let tempVIN = newVehicle.VIN;
+      newVehicle.VIN ="";
+      this.restService.editAsset("vehicle", tempVIN, JSON.stringify(newVehicle)).subscribe(
         (data) => {
           this.displayMessage = "Success, vehicle information has been updated.";
         },

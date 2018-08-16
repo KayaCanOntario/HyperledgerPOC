@@ -38,7 +38,7 @@ export class RegisterPageComponent implements OnInit {
     } else if (this.inFirstName == null || this.inFirstName == undefined) {
       this.displayMessage = "First Name field is required.";
       return;
-    } else if (this.inLastName == null || this.inLastName == undefined) {
+    } else if (this.selector != "2" && (this.inLastName == null || this.inLastName == undefined)) {
       this.displayMessage = "Last Name field is required.";
       return;
     } else if (this.inPassword == null || this.inPassword == undefined) {
