@@ -30,7 +30,7 @@ import { HttpClientInterceptor } from './interceptor/http-client.intercepto
 import { CarOwnerOrderComponent } from './car-owner-order/car-owner-order.component';;
 import { ManufacturerHubEditCarComponent } from './manufacturer-hub-edit-car/manufacturer-hub-edit-car.component'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatButtonModule, MatDialogModule} from '@angular/material';
+import { MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatInputModule, MatButtonModule, MatDialogModule } from '@angular/material';
 import { HelpComponent } from './help/help.component';
 
 @NgModule({
@@ -60,7 +60,6 @@ import { HelpComponent } from './help/help.component';
     CarOwnerOrderComponent,
     ManufacturerHubEditCarComponent,
     HelpComponent
-
 
   ],
   imports: [

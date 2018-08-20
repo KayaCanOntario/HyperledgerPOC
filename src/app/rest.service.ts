@@ -30,6 +30,7 @@ export class RestService {
     return this.http.put(url + '/' + assetID, newAsset).pipe(map(data => data as any));
   }
 
+  //delete an existing asset
   deleteFrom(url: string): Observable<any> {
     return this.http.delete(url);
   }
